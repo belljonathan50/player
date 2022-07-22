@@ -62,6 +62,10 @@ console.log("now " + NowClientNum + " later " + when);
       console.log("I tune "+value);
       loadMidiUrl('/midi/'+thispath+'/'+value+'.mid');
       break;
+    case "dummy":
+        // code block
+        console.log("dummy");
+        break; 
     default:
       // code block
   }
