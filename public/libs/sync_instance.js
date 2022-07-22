@@ -11,6 +11,9 @@ setInterval(function () {
   var NowHere = new Date(ts.now());
   var NowNum = NowHere.getTime()
   console.log(`here: `+NowNum);
+  ws.send("dummy");
 }, 5000);
+
+
 
 
