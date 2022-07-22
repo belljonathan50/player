@@ -31,7 +31,9 @@
 
 
 
- <button id="lock" type="button" onclick="this.remove();">please click</button>
+ <button id="lock" type="button" onclick="this.remove();
+ window.onload = setTimeout(loadMidiUrl('guer.mid'), 200)
+ ">please click</button>
 
 
 
@@ -39,6 +41,8 @@
 <body>
 <h1>webaudio-tinysynth : js version test</h1>
 This is a simple sample of webaudio-tinysynth (JavaScript library version) page.
+
+
 <hr/>
 <button onclick="Test()">Test audioContext</button>
 <hr/>
@@ -73,8 +77,7 @@ Play by keys :<br/>
 
 <script>
   console.log('end');
-  // window.onload = loadMidiUrl;
-  setTimeout(loadMidiUrl, 500)
+  //  = loadMidiUrl;
  
   
 </script>
