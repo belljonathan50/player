@@ -11,14 +11,22 @@
     <script>
         // init
         window.GlobalLag= 200;
+
+        var HOST = location.origin.replace(/^http/, 'ws');
+        var ws = new WebSocket(HOST);
+
+
+
     </script>
 
 <button type="button" onclick="ws.send('play 1');">play</button>
 <button type="button" onclick="ws.send('play 0');">pause</button>
 <br>
+<br>
 <button type="button" onclick="ws.send('tune guer');">guerrero</button>
 <button type="button" onclick="ws.send('tune ft');">ft</button>
-<button type="button" onclick="ws.send('tune ws 0');">ws</button>
+<button type="button" onclick="ws.send('tune ws');">ws</button>
+<button type="button" onclick="ws.send('tune ray');">ray du q</button>
 
       <form>
         <label for="vol">lag (between 0 and 1111ms)</label>
