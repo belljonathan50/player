@@ -13,12 +13,12 @@
         window.GlobalLag= 200;
     </script>
 
-<button type="button" onclick="ws.send('play');">play</button>
-
-<button type="button" onclick="ws.send('seek');">seek</button>
-
-
-
+<button type="button" onclick="ws.send('play 1');">play</button>
+<button type="button" onclick="ws.send('play 0');">pause</button>
+<br>
+<button type="button" onclick="ws.send('tune guer');">guerrero</button>
+<button type="button" onclick="ws.send('tune ft');">ft</button>
+<button type="button" onclick="ws.send('tune ws 0');">ws</button>
 
       <form>
         <label for="vol">lag (between 0 and 1111ms)</label>
@@ -32,20 +32,19 @@
 
 <br>
 
-<!-- seek value -->
       <form>
         <label for="vol">seek: (between 0 and 300s)</label>
         <input type="range" id="seek" name="sik"  min="0" max="300" value="3" style="color:rgb(0, 251, 21); width:400px;" oninput="
         var seekval = this.value;
 
-        var NowHere = new Date(ts.now());
+  var NowHere = new Date(ts.now());
   var NowNum = NowHere.getTime()
   console.log(`here:  `+NowNum);
   futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
   console.log(`later: `+futuredate);
 
-  console.log('send seek '+ seekval + ' at: '+ futuredate);
-  ws.send('send seek '+ seekval + ' at: '+ futuredate);
+  console.log('seek '+ seekval + ' at: '+ futuredate);
+  ws.send('seek '+ seekval + ' at: '+ futuredate);
 
         var mins = ~~((seekval % 1800) / 60);
         var secs = ~~seekval % 60;
@@ -55,38 +54,6 @@
 
         <br><br>
     </form>
-
-
-<!-- playback rate?
-<form>
-            <label for="vol">playback-speed</label>
-            <input type="range" id="vol" name="sik" value="1" min="0.5" max="4" step="0.1" style="color:rgb(0, 251, 21); width:1200px;" 
-            oninput=
-            "
-            var rate = 'rate '+ this.value;
-
-
-            var NowHere = new Date(ts.now());
-  var NowNum = NowHere.getTime()
-  console.log(`here:  `+NowNum);
-  futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
-  console.log(`later: `+futuredate);
-
-  console.log('send seek '+ seekval + ' at: '+ futuredate);
-  ws.send('send seek '+ seekval + ' at: '+ futuredate);
-
-        var mins = ~~((seekval % 1800) / 60);
-        var secs = ~~seekval % 60;
-        this.nextElementSibling.value =  'send seek: '+      mins + ' mins ' + secs    + ' at: '+ futuredate ;
- 
-            console.log(rate);
-            this.nextElementSibling.value =  ' Rate =  ' + this.value  ;
-           ws.send('rate '+value);
-            ">
-            <output> Rate = 1</output>
-         
-</form> -->
-
 
 </body>
 </html>
