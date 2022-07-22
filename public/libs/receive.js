@@ -60,7 +60,7 @@ setInterval(function () {
     case "tune":
       // code block
       console.log("I tune "+value);
-      loadMidiUrl(value+'.mid')
+      loadMidiUrl('/midi/'+thispath+'/'+value+'.mid');
       break;
     default:
       // code block
