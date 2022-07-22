@@ -25,20 +25,20 @@ setInterval(function () {
       var obj = str.split(' ');
       var header = obj[0] ;
       var value =  obj[1] ;
-      var when = parseInt(obj[4]) ;
+      var when = obj[2] ;
       console.log("-------------");
-      // console.log(typeof header);
+     console.log(when);
 
     var NowClientSide = new Date(ts.now());
     var NowClientNum = NowClientSide.getTime()
 
-//     console.log(`NowClientSideNum `+NowClientNum);
+    console.log(`NowClientSideNum `+NowClientNum);
     
-//     console.log(`when `+when);
+    console.log(`when `+when);
     
-// console.log("now " + NowClientNum + " later " + when);
+console.log("now " + NowClientNum + " later " + when);
  var difference =  Math.abs(NowClientNum - when);
-//  console.log("difference " + difference);
+ console.log("difference " + difference);
 
  setTimeout( update,difference)
 
