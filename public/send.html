@@ -2,7 +2,6 @@
 <html>
 <head>
     <script src="/timesync/timesync.js"></script> 
-    <script src="/libs/send.js"></script> 
     <script src="/libs/sync_instance.js"></script> 
     <script src="/libs/sync_forward.js"></script> 
 </head>
@@ -16,11 +15,24 @@
         var ws = new WebSocket(HOST);
 
 
+        function getTime () {
+  var NowHere = new Date(ts.now());
+  var NowNum = NowHere.getTime()
+  console.log(`here:  `+NowNum);
+  futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
+  console.log(`later: `+futuredate);
+        }
+
+
 
     </script>
 
-<button type="button" onclick="ws.send('play 1');">play</button>
-<button type="button" onclick="ws.send('play 0');">pause</button>
+<button type="button" onclick="
+    getTime();
+    ws.send('play 1 '+futuredate);">play</button>
+<button type="button" onclick="
+    getTime();
+    ws.send('play 0 '+futuredate);">pause</button>
 <br>
 <br>
 <button type="button" onclick="ws.send('tune guer');">guerrero</button>
@@ -45,11 +57,7 @@
         <input type="range" id="seek" name="sik"  min="0" max="300" value="3" style="color:rgb(0, 251, 21); width:400px;" oninput="
         var seekval = this.value;
 
-  var NowHere = new Date(ts.now());
-  var NowNum = NowHere.getTime()
-  console.log(`here:  `+NowNum);
-  futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
-  console.log(`later: `+futuredate);
+
 
   console.log('seek '+ seekval + ' at: '+ futuredate);
   ws.send('seek '+ seekval + ' at: '+ futuredate);
