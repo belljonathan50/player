@@ -7,6 +7,9 @@ const Max = require('max-api');
 var timesyncServer = require('timesync/server');
 
 
+
+var ws = null;
+
 const router = express.Router();
 const path = require('path');
 const expressWs   = require('express-ws')(app);
@@ -75,6 +78,17 @@ app.get('/conductor', function (req, res) {
 
 // app.use('/static', express.static(path.join(__dirname, 'public')))
 
+// Max.addHandler("connect", (url) => {
+// 	ws = new WS.WebSocket (url)
+// 	if (ws) {
+// 		Max.outlet("Connected to", url);
+// 		ws.onmessage = function(msg) {
+// 			Max.outlet(msg.data);
+// 		};
+// 	}
+// 	else
+// 		Max.outlet("Can't connect to", url);
+// });
 
 Max.addHandler("bang", () => {
   file.set("seek", 12);
