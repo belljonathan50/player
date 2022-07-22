@@ -13,9 +13,15 @@
         window.GlobalLag= 200;
     </script>
 
+<button type="button" onclick="ws.send('play');">play</button>
+
+<button type="button" onclick="ws.send('seek');">seek</button>
+
+
+
 
       <form>
-        <label for="vol">lag</label>
+        <label for="vol">lag (between 0 and 1111ms)</label>
         <input type="range" id="lag" name="lag"  min="0" max="1111" value="200" style="color:rgb(0, 251, 21); width:400px;" oninput="
         var lagval = this.value;
         window.GlobalLag= lagval;
@@ -24,12 +30,12 @@
         <output>200 ms </output>
       </form>
 
-<br><br>
+<br>
 
-
+<!-- seek value -->
       <form>
-        <label for="vol">seek (between 0 and 1111s):</label>
-        <input type="range" id="seek" name="sik"  min="0" max="600" value="3" style="color:rgb(0, 251, 21); width:400px;" oninput="
+        <label for="vol">seek: (between 0 and 300s)</label>
+        <input type="range" id="seek" name="sik"  min="0" max="300" value="3" style="color:rgb(0, 251, 21); width:400px;" oninput="
         var seekval = this.value;
 
         var NowHere = new Date(ts.now());
@@ -48,7 +54,10 @@
         <output>0 mins 00</output>
 
         <br><br>
-      
+    </form>
+
+
+<!-- playback rate?
 <form>
             <label for="vol">playback-speed</label>
             <input type="range" id="vol" name="sik" value="1" min="0.5" max="4" step="0.1" style="color:rgb(0, 251, 21); width:1200px;" 
@@ -69,17 +78,14 @@
         var mins = ~~((seekval % 1800) / 60);
         var secs = ~~seekval % 60;
         this.nextElementSibling.value =  'send seek: '+      mins + ' mins ' + secs    + ' at: '+ futuredate ;
-        
-
-
-
+ 
             console.log(rate);
             this.nextElementSibling.value =  ' Rate =  ' + this.value  ;
            ws.send('rate '+value);
             ">
             <output> Rate = 1</output>
-          </form>
-</form>
+         
+</form> -->
 
 
 </body>
