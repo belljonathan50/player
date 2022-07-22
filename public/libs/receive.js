@@ -23,6 +23,7 @@ setInterval(function () {
     console.log(msg.data);
       var str = msg.data;
       var obj = str.split(' ');
+      var header = parseInt(obj[0]) ;
       var when = parseInt(obj[4]) ;
       console.log("-------------");
       console.log(typeof when);
@@ -41,8 +42,25 @@ console.log("now " + NowClientNum + " later " + when);
  setTimeout( update,difference)
 
  function update() {
-  console.log(obj);
   synth.send([0x90, 60, 100])
+
+
+
+  switch(header) {
+    case play:
+      // code block
+      console.log("play");
+      break;
+    case seek:
+      // code block
+      console.log("seek");
+      break;
+    default:
+      // code block
+  }
+
+
+
 }
 };
 }());
