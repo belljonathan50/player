@@ -23,37 +23,44 @@ setInterval(function () {
     console.log(msg.data);
       var str = msg.data;
       var obj = str.split(' ');
-      var header = parseInt(obj[0]) ;
+      var header = obj[0] ;
+      var value =  obj[1] ;
       var when = parseInt(obj[4]) ;
       console.log("-------------");
-      console.log(typeof when);
+      // console.log(typeof header);
 
     var NowClientSide = new Date(ts.now());
     var NowClientNum = NowClientSide.getTime()
 
-    console.log(`NowClientSideNum `+NowClientNum);
+//     console.log(`NowClientSideNum `+NowClientNum);
     
-    console.log(`when `+when);
+//     console.log(`when `+when);
     
-console.log("now " + NowClientNum + " later " + when);
+// console.log("now " + NowClientNum + " later " + when);
  var difference =  Math.abs(NowClientNum - when);
- console.log("difference " + difference);
+//  console.log("difference " + difference);
 
  setTimeout( update,difference)
 
  function update() {
-  synth.send([0x90, 60, 100])
+  // synth.send([0x90, 60, 100])
 
 
 
   switch(header) {
-    case play:
+    case "play":
       // code block
-      console.log("play");
+      if (value == 1){playMidi()} else {stopMidi()}
       break;
-    case seek:
+    case "seek":
       // code block
-      console.log("seek");
+      console.log("I seek");
+      synth.locateMIDI(value);
+      break;
+    case "tune":
+      // code block
+      console.log("I tune "+value);
+      loadMidiUrl(value+'.mid')
       break;
     default:
       // code block
