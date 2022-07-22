@@ -1,6 +1,6 @@
 
-function loadMidiUrl(){
-    synth.loadMIDIUrl('ft.mid');
+function loadMidiUrl(afile){
+    synth.loadMIDIUrl(afile);
     console.log('midi loaded');
   }
   
