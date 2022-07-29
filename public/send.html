@@ -3,6 +3,8 @@
 <head>
     <script src="/timesync/timesync.js"></script> 
     <script src="/libs/sync_instance.js"></script> 
+    <script src="/libs/web-audio-scheduler.min.js"></script>
+    <script src="/libs/schedule.js"></script>
 </head>
 
 <body>
@@ -55,6 +57,7 @@
         <output>200 ms </output>
       </form>
 
+
 <br>
 
       <form>
@@ -75,6 +78,16 @@
 
         <br><br>
     </form>
+
+
+<button type="button" onclick="start()">sched start</button>
+<button type="button" onclick="stop()">sched stop</button>
+<button type="button" onclick="  ws.send('sche '+ 'sop');
+
+
+">ping sop</button>
+
+    
 
 </body>
 </html>
