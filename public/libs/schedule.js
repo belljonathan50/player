@@ -11,6 +11,15 @@ function metronome(e) {
     sched.insert(t0 + 1.500, ticktack, { voice: 'bas', note: 63  });
     sched.insert(t0 + 2.000, metronome);
   }
+
+  function dufay(e) {
+    var t0 = e.playbackTime;
+    sched.insert(t0 + 0.000, ticktack, { voice: 'sop', note: 60 });
+    sched.insert(t0 + 0.500, ticktack, { voice: 'alt', note: 63  });
+    sched.insert(t0 + 1.000, ticktack, { voice: 'ten', note: 67  });
+    sched.insert(t0 + 1.500, ticktack, { voice: 'bas', note: 69  });
+    sched.insert(t0 + 2.000, metronome);
+  }
   
   function ticktack(e) {
     var t0 = e.playbackTime;
@@ -61,7 +70,7 @@ sched.on("stop", function() {
   masterGain = null;
 });
 
-function start() {
+function start(metronome) {
   sched.start(metronome);
 }
 
