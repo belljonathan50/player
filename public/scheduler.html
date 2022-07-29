@@ -1,0 +1,170 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>scheduler</title>
+
+  <script src="/libs/web-audio-scheduler.min.js"></script>
+  <script src="/timesync/timesync.js"></script> 
+  <script src="/libs/sync_instance.js"></script> 
+
+
+  <script> 
+
+var audioContext = new AudioContext();
+      var sched = new WebAudioScheduler({ context: audioContext });
+      var masterGain = null;
+
+      function metronome(e) {
+        var t0 = e.playbackTime;
+
+        sched.insert(t0 + 0.000, ticktack, { frequency: 880, duration: 1.0 });
+        sched.insert(t0 + 0.500, ticktack, { frequency: 440, duration: 0.2 });
+        sched.insert(t0 + 1.000, ticktack, { frequency: 440, duration: 0.2 });
+        sched.insert(t0 + 1.500, ticktack, { frequency: 440, duration: 0.2 });
+        sched.insert(t0 + 2.000, metronome);
+      }
+
+      function ticktack(e) {
+        var t0 = e.playbackTime;
+        var t1 = t0 + e.args.duration;
+        var osc = audioContext.createOscillator();
+        var amp = audioContext.createGain();
+
+        osc.frequency.value = e.args.frequency;
+        osc.start(t0);
+        osc.stop(t1);
+        osc.connect(amp);
+
+        amp.gain.setValueAtTime(0.5, t0);
+        amp.gain.exponentialRampToValueAtTime(1e-6, t1);
+        amp.connect(masterGain);
+
+        sched.nextTick(t1, function() {
+          osc.disconnect();
+          amp.disconnect();
+        });
+      }
+
+      sched.on("start", function() {
+        masterGain = audioContext.createGain();
+        masterGain.connect(audioContext.destination);
+      });
+
+      sched.on("stop", function() {
+        masterGain.disconnect();
+        masterGain = null;
+      });
+
+      function start() {
+        sched.start(metronome);
+      }
+
+      function stop() {
+        sched.stop(true);
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+          sched.aheadTime = 0.1;
+        } else {
+          sched.aheadTime = 1.0;
+          sched.process();
+        }
+      });
+
+
+    </script>
+
+
+
+
+<script>
+  // init
+  window.GlobalLag= 200;
+
+  var HOST = location.origin.replace(/^http/, 'ws');
+  var ws = new WebSocket(HOST);
+
+
+  function getTime () {
+var NowHere = new Date(ts.now());
+var NowNum = NowHere.getTime()
+console.log(`here:  `+NowNum);
+futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
+console.log(`later: `+futuredate);
+  }
+
+
+
+</script>
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+
+
+
+
+
+
+<button type="button" onclick="
+getTime();
+ws.send('play 1 '+futuredate);">play</button>
+<button type="button" onclick="
+getTime();
+ws.send('play 0 '+futuredate);">pause</button>
+<br>
+<br>
+<button type="button" onclick="ws.send('tune lhomme');">l'homme armé</button>
+<button type="button" onclick="ws.send('tune machaut');">machaut</button>
+<button type="button" onclick="ws.send('tune nymphe');">nymphe</button>
+<button type="button" onclick="ws.send('tune omagnum');">omagnum</button>
+<button type="button" onclick="ws.send('tune ray');">ray au soleil</button>
+<button type="button" onclick="ws.send('tune medee');">medee fu</button>
+<button type="button" onclick="ws.send('tune enatendant');">en atendant</button>
+<button type="button" onclick="ws.send('tune miserere');">MISERERE</button>
+<button type="button" onclick="ws.send('tune lassus');">Lassus</button>
+<button type="button" onclick="ws.send('tune bicinium');">bicinium</button>
+
+  <form>
+    <label for="vol">lag (between 0 and 1111ms)</label>
+    <input type="range" id="lag" name="lag"  min="0" max="1111" value="200" style="color:rgb(0, 251, 21); width:400px;" oninput="
+    var lagval = this.value;
+    window.GlobalLag= lagval;
+    this.nextElementSibling.value = 'Lag is: '+ lagval+' ms';      
+    ">
+    <output>200 ms </output>
+  </form>
+
+<br>
+
+  <form>
+    <label for="vol">seek: (between 0 and 300s)</label>
+    <input type="range" id="seek" name="sik"  min="0" max="30000" value="3" style="color:rgb(0, 251, 21); width:400px;" oninput="
+    var seekval = this.value;
+
+
+
+console.log('seek '+ seekval + ' at: '+ futuredate);
+ws.send('seek '+ seekval + ' at: '+ futuredate);
+
+    var mins = ~~((seekval % 1800) / 60);
+    var secs = ~~seekval % 60;
+    this.nextElementSibling.value =  'send seek: '+      mins + ' mins ' + secs    + ' at: '+ futuredate ;
+    ">
+    <output>0 mins 00</output>
+
+    <br><br>
+</form>
+ </body>
+</html>
