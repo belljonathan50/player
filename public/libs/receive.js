@@ -26,6 +26,7 @@ setInterval(function () {
       var header = obj[0] ;
       var value =  obj[1] ;
       var when = obj[2] ;
+      var note = obj[3] ;
       console.log("-------------");
      console.log(when);
 
@@ -62,8 +63,51 @@ console.log("now " + NowClientNum + " later " + when);
       console.log("I tune "+value);
       loadMidiUrl('/midi/'+thispath+'/'+value+'.mid');
       break;
+    case "sche":
+
+              switch(value) {
+                case "sop":
+                  // code block
+                  if (thispath == value){myFunction(note);};
+
+                  
+                  break;
+                case "alt":
+                  // code block
+                  if (thispath == value){myFunction(note);};
+                  break;
+                case "ten":
+                  // code block
+                  if (thispath == value){myFunction(note);};
+                  break;
+                case "bas":
+                  if (thispath == value){myFunction(note);};
+                  break; }
+
+
+
+
+      
+      break; 
+
+
+      // Max.addHandler('sop', (toto) => {
+      //   const timetag = Date.now();
+      //   Max.post(`now   `+timetag);
+      //   var when = timetag+ file.data.lag;
+      //    Max.post(`when `+ when);
+      //    file.set("when", when);
+      //    Max.post(file.data.lag);
+      //   Max.post(`send`);
+      //   connects.forEach(socket => {  
+      //     socket.send("sop "+ toto+" "+ when ); 
+      //   });
+      // });
+
+
+
+
     case "dummy":
-        // code block
         console.log("dummy");
         break; 
     default:
@@ -75,6 +119,12 @@ console.log("now " + NowClientNum + " later " + when);
 }
 };
 }());
+
+
+ // play notes
+function myFunction(p1) {
+  synth.send([0x90,p1,100])
+}
 
 
 
