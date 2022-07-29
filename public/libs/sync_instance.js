@@ -7,6 +7,9 @@
 
 ts.on('change', function (offset) {
 });
+
+
+  // reactivate dummy
 setInterval(function () {
   var NowHere = new Date(ts.now());
   var NowNum = NowHere.getTime()
