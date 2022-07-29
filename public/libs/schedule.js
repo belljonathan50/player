@@ -14,11 +14,17 @@ function metronome(e) {
 
   function dufay(e) {
     var t0 = e.playbackTime;
-    sched.insert(t0 + 0.000, ticktack, { voice: 'sop', note: 60 });
-    sched.insert(t0 + 0.500, ticktack, { voice: 'alt', note: 63  });
-    sched.insert(t0 + 1.000, ticktack, { voice: 'ten', note: 67  });
-    sched.insert(t0 + 1.500, ticktack, { voice: 'bas', note: 69  });
-    sched.insert(t0 + 2.000, metronome);
+   
+sched.insert(t0 +  0., ticktack, { voice: 'sop', note: 60});
+sched.insert(t0 +  0.472646, ticktack, { voice: 'alt', note: 64});
+sched.insert(t0 +  1.090000, ticktack, { voice: 'ten', note: 67});
+sched.insert(t0 +  1.897123, ticktack, { voice: 'bas', note: 72});
+sched.insert(t0 +  2.932646, ticktack, { voice: 'bas', note: 68});
+sched.insert(t0 +  4.252646, ticktack, { voice: 'bas', note: 65});
+sched.insert(t0 +  5.102646, ticktack, { voice: 'ten', note: 62});
+sched.insert(t0 +  5.832646, ticktack, { voice: 'alt', note: 59});
+
+    sched.insert(t0 + 7.000, dufay);
   }
   
   function ticktack(e) {
