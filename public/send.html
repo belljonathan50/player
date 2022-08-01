@@ -1,16 +1,19 @@
 <!doctype html>
 <html>
 <head>
+    <script> window.GlobalLag= 500;window.thistune= "kunst";</script>
+
     <script src="/timesync/timesync.js"></script> 
     <script src="/libs/sync_instance.js"></script> 
     <script src="/libs/web-audio-scheduler.min.js"></script>
     <script src="/libs/schedule.js"></script>
+    <script src="/libs/schedule-tunes-as-func.js"></script>  
 </head>
 
 <body>
     <script>
         // init
-        window.GlobalLag= 200;
+       
 
         var HOST = location.origin.replace(/^http/, 'ws');
         var ws = new WebSocket(HOST);
@@ -19,9 +22,9 @@
         function getTime () {
   var NowHere = new Date(ts.now());
   var NowNum = NowHere.getTime()
-  console.log(`here:  `+NowNum);
+//   console.log(`here:  `+NowNum);
   futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
-  console.log(`later: `+futuredate);
+//   console.log(`later: `+futuredate);
         }
 
 
@@ -49,12 +52,12 @@
 
       <form>
         <label for="vol">lag (between 0 and 1111ms)</label>
-        <input type="range" id="lag" name="lag"  min="0" max="1111" value="200" style="color:rgb(0, 251, 21); width:400px;" oninput="
+        <input type="range" id="lag" name="lag"  min="0" max="1111" value="500" style="color:rgb(0, 251, 21); width:400px;" oninput="
         var lagval = this.value;
         window.GlobalLag= lagval;
         this.nextElementSibling.value = 'Lag is: '+ lagval+' ms';      
         ">
-        <output>200 ms </output>
+        <output>500 ms </output>
       </form>
 
 
@@ -80,16 +83,9 @@
     </form>
 
 
-<button type="button" onclick="start(metronome)">sched start metronome</button>
+<button type="button" onclick="start(metronome); window.thistune = 'kunst'">sched start metronome</button>
 <button type="button" onclick="start(ray)">sched start ray"</button>
-<button type="button" onclick="start(bach)">sched start bach"</button>
-<button type="button" onclick="stop()">sched stop</button>
-<button type="button" onclick="  ws.send('sche '+ 'sop');
-
-
-">ping sop</button>
-
-    
-
+<button type="button" style="color:red;" onclick="start(bach); window.thistune  = 'kunst'">start bach</button>
+<button type="button" style="color:red;" onclick="stop()">stop</button>
 </body>
 </html>
