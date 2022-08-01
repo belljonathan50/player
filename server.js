@@ -39,18 +39,40 @@ router.get("/", function (req, res) {
 
 
 
-app.get('/C', function (req, res) {
-  res.sendfile(publicPath + '/jsonC.html');
+app.get('/s', function (req, res) {
+  res.sendfile(publicPath + '/sop.html');
 });
 
-app.get('/S', function (req, res) {
-  res.sendfile(publicPath + '/jsonS.html');
+app.get('/a', function (req, res) {
+  res.sendfile(publicPath + '/alt.html');
+});
+
+app.get('/t', function (req, res) {
+  res.sendfile(publicPath + '/ten.html');
+});
+
+app.get('/b', function (req, res) {
+  res.sendfile(publicPath + '/bas.html');
+});
+
+app.get('/sop', function (req, res) {
+  res.sendfile(publicPath + '/sop.html');
+});
+
+app.get('/alt', function (req, res) {
+  res.sendfile(publicPath + '/alt.html');
+});
+
+app.get('/ten', function (req, res) {
+  res.sendfile(publicPath + '/ten.html');
+});
+
+app.get('/bas', function (req, res) {
+  res.sendfile(publicPath + '/bas.html');
 });
 
 
-app.get('/conductor', function (req, res) {
-  res.sendfile(publicPath + '/conductor.html');
-});
+
 
 
 // app.use('/static', express.static(path.join(__dirname, 'public')))
