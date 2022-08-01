@@ -20,26 +20,26 @@ setInterval(function () {
   
   ws.onmessage = function(msg) {
     
-    console.log(msg.data);
+    // console.log(msg.data);
       var str = msg.data;
       var obj = str.split(' ');
       var header = obj[0] ;
       var value =  obj[1] ;
       var when = obj[2] ;
       var note = obj[3] ;
-      console.log("-------------");
-     console.log(when);
+    //   console.log("-------------");
+    //  console.log(when);
 
     var NowClientSide = new Date(ts.now());
     var NowClientNum = NowClientSide.getTime()
 
-    console.log(`NowClientSideNum `+NowClientNum);
+    // console.log(`NowClientSideNum `+NowClientNum);
     
-    console.log(`when `+when);
+    // console.log(`when `+when);
     
-console.log("now " + NowClientNum + " later " + when);
+// console.log("now " + NowClientNum + " later " + when);
  var difference =  Math.abs(NowClientNum - when);
- console.log("difference " + difference);
+//  console.log("difference " + difference);
 
  setTimeout( update,difference)
 
@@ -62,6 +62,7 @@ console.log("now " + NowClientNum + " later " + when);
       // code block
       console.log("I tune "+value);
       loadMidiUrl('/midi/'+thispath+'/'+value+'.mid');
+      
       break;
     case "sche":
 
@@ -83,26 +84,27 @@ console.log("now " + NowClientNum + " later " + when);
                 case "bas":
                   if (thispath == value){myFunction(note);};
                   break; }
+        break;
+    case "turn":
 
+              switch(value) {
+                case "sop":
+                  // code block
+                  if (thispath == value){changePage(note)}; 
+                  break;
+                case "alt":
+                  // code block
+                  if (thispath == value){changePage(note)}; 
+                  break;
+                case "ten":
+                  // code block
+                  if (thispath == value){changePage(note)}; 
+                  break;
+                case "bas":
+                  if (thispath == value){changePage(note)}; 
+                  break; }
+        break; 
 
-
-
-      
-      break; 
-
-
-      // Max.addHandler('sop', (toto) => {
-      //   const timetag = Date.now();
-      //   Max.post(`now   `+timetag);
-      //   var when = timetag+ file.data.lag;
-      //    Max.post(`when `+ when);
-      //    file.set("when", when);
-      //    Max.post(file.data.lag);
-      //   Max.post(`send`);
-      //   connects.forEach(socket => {  
-      //     socket.send("sop "+ toto+" "+ when ); 
-      //   });
-      // });
 
 
 
@@ -125,6 +127,16 @@ console.log("now " + NowClientNum + " later " + when);
 function myFunction(p1) {
   synth.send([0x90,p1,100])
 }
+
+function changePage(p1) {
+  var img = document.getElementById("img");
+  img.src = "./images/" +thispath  + "/"+p1 + ".png";
+console.log(img.src)
+}
+
+
+
+
 
 
 
