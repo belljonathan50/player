@@ -38,6 +38,9 @@ router.get("/", function (req, res) {
 });
 
 
+app.get('/send', function (req, res) {
+  res.sendfile(publicPath + '/send.html');
+});
 
 app.get('/s', function (req, res) {
   res.sendfile(publicPath + '/sop.html');
