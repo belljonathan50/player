@@ -22,11 +22,11 @@
 </head>
 
 <body>
-	<script>speed = 1; lastDate = 0</script>
+	<script>speed = 1; lastDate = 0; GlobalLag=500</script>
 
 
     <script>
-        // init
+        // timetag getTime
        
 
         var HOST = location.origin.replace(/^http/, 'ws');
@@ -40,9 +40,6 @@
   futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
 //   console.log(`later: `+futuredate);
         }
-
-
-
     </script>
 
 
@@ -173,6 +170,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 
 
 
+
 <div class="inscore" id="scene">
 <pre>
 	/ITL/scene watch PLAY (
@@ -184,18 +182,21 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 		/ITL/scene/pos tempo 0,
 		/ITL/scene/pos date 0,
 		/ITL/scene/javascript run "stop()",
+		/ITL/scene/javascript run "pauseVid()",
 		/ITL/scene/javascript run "lastStop()"
 	);
 	
 	/ITL/scene watch PAUSE (
 		/ITL/scene/javascript run "stop()",
+		/ITL/scene/javascript run "pauseVid()",
 		/ITL/scene/pos tempo 0,
-		/ITL/scene/javascript run "stop()"
+		/ITL/scene/javascript run "ws.send ('play '+0)"
 	);
 
 	/ITL/scene watch REWIND (
 		/ITL/scene/pos tempo 0,
 		/ITL/scene/javascript run "stop()",
+		/ITL/scene/javascript run "pauseVid()",
 		/ITL/scene/javascript run "lastTime()"
 	);
 
@@ -305,7 +306,21 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 
 
 	</pre>
+
+
+
 </div>
+<form>
+	<label for="vol">lag (between 0 and 1111ms)</label>
+	<input type="range" id="lag" name="lag"  min="0" max="1111" value="500" style="color:rgb(0, 251, 21); width:400px;" oninput="
+	var lagval = this.value;
+	window.GlobalLag= lagval;
+	this.nextElementSibling.value = 'Lag is: '+ lagval+' ms';      
+	">
+	<output>500 ms </output>
+  </form>
+
+
 </body>
 
 <!-- <script>
