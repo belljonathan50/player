@@ -29,9 +29,7 @@ sched.on("stop", function() {
   masterGain = null;
 });
 
-function start(metronome) {
-  sched.start(metronome);
-}
+
 
 function stop() {
   sched.stop(true);
