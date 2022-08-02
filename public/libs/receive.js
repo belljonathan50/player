@@ -12,7 +12,10 @@ setInterval(function () {
   console.log(now);
 }, 5000);
 
- 
+   // init delay
+
+ if (thispath != 'vid'){delay = 0}
+
 
 (function() {
   var HOST = location.origin.replace(/^http/, 'ws');
@@ -20,43 +23,45 @@ setInterval(function () {
   
   ws.onmessage = function(msg) {
     
-    // console.log(msg.data);
+
       var str = msg.data;
       var obj = str.split(' ');
       var header = obj[0] ;
       var value =  obj[1] ;
       var when = obj[2] ;
       var note = obj[3] ;
-    //   console.log("-------------");
-    //  console.log(when);
 
     var NowClientSide = new Date(ts.now());
     var NowClientNum = NowClientSide.getTime()
 
-    // console.log(`NowClientSideNum `+NowClientNum);
-    
-    // console.log(`when `+when);
-    
-// console.log("now " + NowClientNum + " later " + when);
+
+
  var difference =  Math.abs(NowClientNum - when);
-//  console.log("difference " + difference);
+
 
  setTimeout( update,difference)
 
  function update() {
-  // synth.send([0x90, 60, 100])
-
 
 
   switch(header) {
     case "play":
       // code block
-      if (value == 1){playMidi()} else {stopMidi()}
+      if (value == 1){ if (thispath == 'vid'){
+        let video = document.getElementById("vid"); 
+        video.play();}};
+      if (value == 0){ if (thispath == 'vid'){
+        console.log("stoooooooop"+ value)
+            let video = document.getElementById("vid"); 
+            video.pause();}};
       break;
     case "seek":
       // code block
-      console.log("I seek");
-      synth.locateMIDI(value);
+      // synth.locateMIDI(value);
+      if (thispath == "vid"){console.log("ededededzdzdzdzdsdsdsds"+ value)
+       let video = document.getElementById("vid");
+      video.currentTime = value;
+      video.pause()}
       break;
     case "tune":
       // code block
@@ -85,6 +90,9 @@ setInterval(function () {
                   if (thispath == value){myFunction(note);};
                   break; }
         break;
+
+ 
+
     case "turn":
 
               switch(value) {
@@ -105,10 +113,6 @@ setInterval(function () {
                   break; }
         break; 
 
-
-
-
-
     case "dummy":
         console.log("dummy");
         break; 
@@ -120,6 +124,7 @@ setInterval(function () {
 
 }
 };
+
 }());
 
 
