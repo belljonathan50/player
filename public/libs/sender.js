@@ -15,11 +15,22 @@ var client = true;
 function store (any) {
     // console.log ("send", msg);
     window.lastDate = parseFloat(any);
+    ws.send ("seek "+lastDate)
 };
 
-function playAt () {
+function playAt() {
     // console.log ("send", msg);
-    start(bach, lastDate)
+    start(bach, lastDate);
+
+    getTime();
+
+   
+    ws.send('video 1 '+futuredate);
+    
+}
+
+function pauseVid(){
+    ws.send ("video 0")
 }
 
 function send (msg) {
