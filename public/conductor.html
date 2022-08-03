@@ -4,21 +4,18 @@
 	<title>Conductor</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href="fonts/fonts.css" rel="stylesheet">
-	<link href="libs/missa.css" rel="stylesheet">
-	<script src="libs/libINScore.js"></script>
-	<script src="libs/inscoreview.js"></script>
-	<script src="libs/inscoreglue.js"></script>
-	<script src="libs/sender.js"></script>
-	
-
+	<link href="libs/css/missa.css" rel="stylesheet">
+	<script src="libs/js/inscore/libINScore.js"></script>
+	<script src="libs/js/inscore/inscoreview.js"></script>
+	<script src="libs/js/inscore/inscoreglue.js"></script>
+    <script src="/timesync/timesync.js"></script> 
+    <script src="/libs/js/sync_instance.js"></script> 
+    <script src="/libs/js/conductor/web-audio-scheduler.min.js"></script>
+    <script src="/libs/js/conductor/scheduleFunctions.js"></script>
+    <script src="/libs/js/conductor/schedule-tunes-as-func.js"></script>  
+	<script src="libs/js/conductor/sender.js"></script>
 	<script> window.GlobalLag= 500;window.thistune= "kunst";</script>
 
-    <script src="/timesync/timesync.js"></script> 
-    <script src="/libs/sync_instance.js"></script> 
-    <script src="/libs/web-audio-scheduler.min.js"></script>
-    <script src="/libs/schedule.js"></script>
-    <script src="/libs/schedule-tunes-as-func.js"></script>  
 </head>
 
 <body>
@@ -31,7 +28,6 @@
 
         var HOST = location.origin.replace(/^http/, 'ws');
         var ws = new WebSocket(HOST);
-
 
         function getTime () {
   var NowHere = new Date(ts.now());
@@ -244,6 +240,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 	
 	/ITL/scene/playPanel watch STOP (
 		/ITL/scene event STOP,
+		/ITL/scene/javascript run "stop()",
 		/ITL/scene/playPanel/play set img $play,
 		/ITL/scene/playPanel/play pop
 	);
