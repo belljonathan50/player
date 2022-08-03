@@ -43,19 +43,30 @@
     </script>
 
 
-	<output>vol</output>
 
 <button id="but" type="button" onclick="
 var msg = inscore.newMessageM('set');
 inscore.msgAddStr(msg, 'img');
 inscore.msgAddStr(msg, ' images/score/kunst/0.png');
 inscore.postMessage('/ITL/scene/tl',msg);
-ws.send('tune duf');
+ws.send('tune kunst');
 var msg2 = inscore.newMessageM('duration');
 inscore.msgAddI(msg2, 77);
 inscore.msgAddI(msg2, 4);
 inscore.postMessage('/ITL/scene/tl',msg2);
-">dufay</button>
+">kunst</button>
+
+<button id="but2" type="button" onclick="
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/kunst/0.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('tune duf2');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 77);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+">percussion</button>
 
 <button id="but2" type="button" onclick="
 var msg = inscore.newMessageM('set');
@@ -207,7 +218,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 	###############################
 	# play control
 	###############################
-	origin = 2.2;
+	origin = 3.2;
 	alpha = 120;
 	rsrc  = 'rsrc/';
 	play  = $rsrc + 'play.png';
@@ -221,11 +232,14 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 	
 	/ITL/scene/playPanel/play set img $play;
 	/ITL/scene/playPanel/stop set img $stop;
-	/ITL/scene/playPanel/pause set img $pause;
+	/ITL/scene/playPanel/pause set img $rewind;
 	/ITL/scene/playPanel/play xorigin $origin;
 	/ITL/scene/playPanel/stop xorigin -$origin;
 	/ITL/scene/playPanel/pause xorigin 0;
+	/ITL/scene/playPanel/* yorigin -5;
 	/ITL/scene/playPanel/* width 1;
+	/ITL/scene/playPanel/pause width 0.3;
+	/ITL/scene/playPanel/pause yorigin -16;
 	/ITL/scene/playPanel/* alpha $alpha;
 	
 	/ITL/scene/playPanel watch STOP (
