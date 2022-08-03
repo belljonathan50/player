@@ -19,6 +19,16 @@ var masterGain = null;
     ws.send('turn '+vox+" "+futuredate+" "+npage);
   }
 
+
+  function sound(e) {
+    var t0 = e.playbackTime;
+    // var nsound = thistune + "/" +e.args.nsound;
+    vox = e.args.voice;
+    getTime();
+    ws.send('sound '+vox+" "+futuredate);
+    console.log("ms sent")
+  }
+
 sched.on("start", function() {
   masterGain = audioContext.createGain();
   masterGain.connect(audioContext.destination);
