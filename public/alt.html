@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
 <head>
-<script src="libs/webaudio-tinysynth.js"></script>
+<script src="libs/js/synth/webaudio-tinysynth.js"></script>
 <script src="/timesync/timesync.js"></script> 
-<script src="/libs/sync_instance.js"></script> 
-<script src="/libs/mysynth.js"></script> 
-<script> let thispath = 'alt'</script> 
-<script src="/libs/receive.js"></script> 
+<script src="/libs/js/sync_instance.js"></script> 
+<script src="/libs/js/synth/mysynth.js"></script> 
+<script src="/libs/js/getMyPath.js"></script>
+<script src="/libs/js/receive.js"></script> 
 
 <style>
   body {
@@ -32,7 +32,7 @@
  <button id="lock" type="button" onclick="this.remove();
  window.onload = setTimeout(loadMidiUrl('/midi/'+thispath+'/enatendant.mid'), 200); 
  synth.send([0x80,60,0])">please click</button>
- <h1> Alto   </h1>
+
  <img src='/images/1.png' alt="Trulli" width="500" height="333" id="img"  style="width: 100%">
  <br/>MasterVol<br/>
 <input type="range" value="50" min="0" max="100" oninput="synth.setMasterVol(this.value/100)"/><br/>
