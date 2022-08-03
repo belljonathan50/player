@@ -74,27 +74,24 @@ setInterval(function () {
               switch(value) {
                 case "sop":
                   // code block
-                  if (thispath == value){myFunction(note);};
+                  if (thispath == value){playNote(note);};
 
                   
                   break;
                 case "alt":
                   // code block
-                  if (thispath == value){myFunction(note);};
+                  if (thispath == value){playNote(note);};
                   break;
                 case "ten":
                   // code block
-                  if (thispath == value){myFunction(note);};
+                  if (thispath == value){playNote(note);};
                   break;
                 case "bas":
-                  if (thispath == value){myFunction(note);};
+                  if (thispath == value){playNote(note);};
                   break; }
         break;
 
- 
-
     case "turn":
-
               switch(value) {
                 case "sop":
                   // code block
@@ -113,6 +110,34 @@ setInterval(function () {
                   break; }
         break; 
 
+    
+    case "sound":
+          switch(value) {
+            case "sop":
+              // code block
+              if (thispath == value){changePage(note)}; 
+              break;
+            case "alt":
+              // code block
+              if (thispath == value){changePage(note)}; 
+              break;
+            case "ten":
+              // code block
+              if (thispath == value){changePage(note)}; 
+              break;
+            case "bas":
+              if (thispath == value){changePage(note)}; 
+              break; 
+            case "sound":
+                // code block
+                if (thispath == value){console.log("hola");playSound()}; 
+                break;
+            
+            }
+              
+            
+    break; 
+
     case "dummy":
         console.log("dummy");
         break; 
@@ -129,7 +154,7 @@ setInterval(function () {
 
 
  // play notes
-function myFunction(p1) {
+function playNote(p1) {
   synth.send([0x90,p1,100])
 }
 
@@ -138,6 +163,12 @@ function changePage(p1) {
   img.src = "./images/" +thispath  + "/"+p1 + ".png";
 console.log(img.src)
 }
+
+function playSound() {
+  sound.play();
+}
+
+
 
 
 
