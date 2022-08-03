@@ -4,31 +4,26 @@
     <script> window.GlobalLag= 500;window.thistune= "kunst";</script>
 
     <script src="/timesync/timesync.js"></script> 
-    <script src="/libs/sync_instance.js"></script> 
+    <script src="/libs/js/sync_instance.js"></script> 
     <script src="/libs/web-audio-scheduler.min.js"></script>
     <script src="/libs/schedule.js"></script>
     <script src="/libs/schedule-tunes-as-func.js"></script>  
+    <link rel="stylesheet" href="/libs/css/pages.css">
+
 </head>
 
 <body>
     <script>
         // init
-       
-
         var HOST = location.origin.replace(/^http/, 'ws');
         var ws = new WebSocket(HOST);
-
-
         function getTime () {
-  var NowHere = new Date(ts.now());
-  var NowNum = NowHere.getTime()
-//   console.log(`here:  `+NowNum);
-  futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
-//   console.log(`later: `+futuredate);
+        var NowHere = new Date(ts.now());
+        var NowNum = NowHere.getTime()
+        //   console.log(`here:  `+NowNum);
+        futuredate =   parseInt(GlobalLag)  + parseInt(NowNum);
+        //   console.log(`later: `+futuredate);
         }
-
-
-
     </script>
 
 <button type="button" onclick="
