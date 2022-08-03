@@ -5,19 +5,15 @@
 	</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href="fonts/fonts.css" rel="stylesheet">
+	<link rel="stylesheet" href="/libs/css/pages.css">
 	<script src="libs/libINScore.js"></script>
 	<script src="libs/inscoreview.js"></script>
 	<script src="libs/inscoreglue.js"></script>
-	<script src="libs/delay.js"></script>
+	<script src="libs/js/delay.js"></script>
 	<script src="/timesync/timesync.js"></script> 
-	<script> var thispath = "vid";</script> 
-
-	
-	<script src="libs/receiveVid.js"></script>
-	
-
-	<link href="libs/missa.css" rel="stylesheet">
+	<script src="/libs/js/getMyPath.js"></script>
+	<script src="libs/js/receiveVid.js"></script>
+	<link href="libs/css/missa.css" rel="stylesheet">
 
 	
 </head>
@@ -36,13 +32,7 @@
 </body>
 <script>
 	document.getElementById ('delay').value = delay;
-	document.getElementById('delayStr').innerText = "delay value : "+delay+"ms";
-	
-var thispath = "vid";
-
-
-
-      
+	document.getElementById('delayStr').innerText = "delay value : "+delay+"ms";    
 </script>
 
 
