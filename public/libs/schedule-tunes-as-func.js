@@ -12,6 +12,7 @@ function bach(e) {
   
   var t0 = e.playbackTime - tzero;
 
+sched.insert(t0 +  0.0000, sound, { voice: 'sound'});
 
   sched.insert(t0 +  0.1000, page, { voice: 'sop', npage: 0});  
   sched.insert(t0 +  0.3000, page, { voice: 'alt', npage: 0});  
