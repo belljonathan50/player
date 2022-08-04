@@ -117,32 +117,11 @@ setInterval(function () {
     case "soundStop":
       if (thispath == value){console.log("holi");  sound.stop();}; 
         break; 
-
-
-
-          // switch(value) {
-          //   case "sop":
-          //     // code block
-          //     if (thispath == value){changePage(note)}; 
-          //     break;
-          //   case "alt":
-          //     // code block
-          //     if (thispath == value){changePage(note)}; 
-          //     break;
-          //   case "ten":
-          //     // code block
-          //     if (thispath == value){changePage(note)}; 
-          //     break;
-          //   case "bas":
-          //     if (thispath == value){changePage(note)}; 
-          //     break; 
-          //   case "sound":
-          //       // code block
-          //       if (thispath == value){console.log("hola");playSound()}; 
-          //       break;
+    
+    case "soundSeek":
+      if (thispath == value){console.log("seeel");  sound.seek(12);}; 
+        break; 
             
-          //   }
-              
             
     break; 
 
