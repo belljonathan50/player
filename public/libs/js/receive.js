@@ -25,6 +25,7 @@ setInterval(function () {
     
 
       var str = msg.data;
+      console.log(str);
       var obj = str.split(' ');
       var header = obj[0] ;
       var value =  obj[1] ;
@@ -119,7 +120,7 @@ setInterval(function () {
         break; 
     
     case "soundSeek":
-      if (thispath == value){console.log("seeel");  sound.seek(12);}; 
+      if (thispath == value){console.log("seededeeel");  sound.seek(12);}; 
         break; 
             
             
