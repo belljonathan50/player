@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@grame/inscorejs": "^1.2.0",
     "basic-auth-connect": "^1.0.0",
     "compression": "^1.6.2",
     "console": "^0.7.2",
