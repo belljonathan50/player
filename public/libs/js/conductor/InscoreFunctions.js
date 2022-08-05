@@ -15,7 +15,7 @@ var client = true;
 function store (any) {
     // console.log ("send", msg);
     window.lastDate = parseFloat(any);
-    ws.send ("seek "+lastDate);
+    ws.send ("seek "+lastDate*4);
     console.log("lastDate "+lastDate)
 };
 
@@ -36,26 +36,29 @@ function lastTime() {
 
 function playAt() {
     // when hitting the play button
+    ws.send ("seek "+lastDate);
+    getTime();
+    ws.send('play 1 '+futuredate);
 
           // start scheduler at that time
-    start(bach, lastDate);
+        // start(bach, lastDate*4);
           // play video
-    getTime();
+   
     ws.send('video 1 '+futuredate);
           // play sound
-    ws.send ("soundSeek sound1 "+lastDate);
+    
     console.log("seek "+lastDate)
   
 }
 
 function pauseVid(){
-    ws.send ("video 0")
+    ws.send ("play 0")
 }
 
 function send (msg) {
     // console.log ("send", msg);
     ws.send (msg);
-    start(bach, lastDate)
+    start(bach, lastDate*4)
 }
 
 // function storedSpeed(speed) {
