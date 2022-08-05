@@ -78,17 +78,62 @@ app.get('/bas', function (req, res) {
 
 
 
+
+
+
+
+
 // app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.ws('/', (ws, req) => {
   connects.push(ws);
 
   ws.on('message', message => {
-    // console.log("hi");
+
+
+
+   // give up on distributed state????
+    var obj = message.split(' ');
+    var header = obj[0] ;
+    var value =  obj[1] ;
+
+    switch(header) {
+      case "tune":
+        file.set("tune", value);
+        file.set("page", 0);
+      
+        break;
+      case "seek":
+        file.set("seek", value);
+        break;
+      default:
+    }
+
+
+
+
+
 
     connects.forEach(socket => {
 
+      // console.log(message);
+      // console.log("header "+header);
+      // console.log("value "+value);
       socket.send(message);
+
+      // switch(header) {
+      //   case "update":
+      //     socket.send(message +" "+JSON.stringify(file)); 
+      //     // socket.send(message +" "+file);    
+      //        console.log("json ");
+      //     break;
+      //   default:
+      //     socket.send(message);
+      // }
+
+
+
+
       // distributed state
       // socket.send(message + ' '+  JSON.stringify(file));
 
@@ -114,3 +159,6 @@ app.use('/timesync', timesyncServer.requestHandler);
 app.listen(app.get('port'), () => {
   console.log('Server listening on port %s', app.get('port'));
 });
+
+
+// constant update
