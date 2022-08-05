@@ -9,11 +9,13 @@
 	<script src="libs/js/inscore/inscoreview.js"></script>
 	<script src="libs/js/inscore/inscoreglue.js"></script>
     <script src="/timesync/timesync.js"></script> 
-    <script src="/libs/js/sync_instance.js"></script> 
-    <script src="/libs/js/conductor/web-audio-scheduler.min.js"></script>
-    <script src="/libs/js/conductor/schedulerFunctions.js"></script>
-    <script src="/libs/js/conductor/schedule-tunes-as-func.js"></script>  
+    <script src="/libs/js/sync_update.js"></script> 
+    <!-- <script src="/libs/js/conductor/web-audio-scheduler.min.js"></script>
+    
+    <script src="/libs/js/conductor/schedule-tunes-as-func.js"></script>   -->
+	<script src="/libs/js/conductor/schedulerFunctions.js"></script>
 	<script src="libs/js/conductor/InscoreFunctions.js"></script>
+	<script src="libs/js/conductor/mediaFunctions.js"></script>
 	<script> window.GlobalLag= 500;window.thistune= "kunst";</script>
 
 </head>
@@ -38,6 +40,37 @@
         }
     </script>
 
+<!-- <button id="but2" type="button" onclick="
+ws.send('update');
+">update</button> -->
+
+
+<button id="choral" type="button" onclick="
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/chorale/0.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('choral mitchel');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 426);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+">choral</button>
+
+<button id="but" type="button" onclick="
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/mitchel/0.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('tune mitchel');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 426);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+">mitchel</button>
+
+
+
 
 
 <button id="but" type="button" onclick="
@@ -47,7 +80,7 @@ inscore.msgAddStr(msg, ' images/score/kunst/0.png');
 inscore.postMessage('/ITL/scene/tl',msg);
 ws.send('tune kunst');
 var msg2 = inscore.newMessageM('duration');
-inscore.msgAddI(msg2, 77);
+inscore.msgAddI(msg2, 1);
 inscore.msgAddI(msg2, 4);
 inscore.postMessage('/ITL/scene/tl',msg2);
 ">kunst</button>
@@ -55,9 +88,9 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 <button id="but2" type="button" onclick="
 var msg = inscore.newMessageM('set');
 inscore.msgAddStr(msg, 'img');
-inscore.msgAddStr(msg, ' images/score/kunst/0.png');
+inscore.msgAddStr(msg, ' images/score/percussion/0.png');
 inscore.postMessage('/ITL/scene/tl',msg);
-ws.send('tune duf2');
+ws.send('tune percussion');
 var msg2 = inscore.newMessageM('duration');
 inscore.msgAddI(msg2, 77);
 inscore.msgAddI(msg2, 4);
@@ -188,22 +221,25 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 	/ITL/scene watch STOP (
 		/ITL/scene/pos tempo 0,
 		/ITL/scene/pos date 0,
-		/ITL/scene/javascript run "stop()",
+		/ITL/scene/javascript run "stopSched()",
+		/ITL/scene/javascript run "stopMedia()",
 		/ITL/scene/javascript run "pauseVid()",
 		/ITL/scene/javascript run "lastStop()"
 	);
 	
 	/ITL/scene watch PAUSE (
-		/ITL/scene/javascript run "stop()",
+		/ITL/scene/javascript run "stopSched()",
 		/ITL/scene/javascript run "pauseVid()",
+		/ITL/scene/javascript run "pauseMedia()",
 		/ITL/scene/pos tempo 0,
 		/ITL/scene/javascript run "ws.send ('play '+0)"
 	);
 
 	/ITL/scene watch REWIND (
 		/ITL/scene/pos tempo 0,
-		/ITL/scene/javascript run "stop()",
+		/ITL/scene/javascript run "stopSched()",
 		/ITL/scene/javascript run "pauseVid()",
+		/ITL/scene/javascript run "pauseMedia()",
 		/ITL/scene/javascript run "lastTime()"
 	);
 
@@ -240,7 +276,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 	
 	/ITL/scene/playPanel watch STOP (
 		/ITL/scene event STOP,
-		/ITL/scene/javascript run "stop()",
+		/ITL/scene/javascript run "stopSched()",
 		/ITL/scene/playPanel/play set img $play,
 		/ITL/scene/playPanel/play pop
 	);
@@ -296,7 +332,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 	###############################
 	# time line - that was in move /ITL/scene/javascript run "send('vdate $date%f')",
 	###############################
-	/ITL/scene/tl set img 'images/score/kunst/0.png' ;
+	/ITL/scene/tl set img 'images/score/mitchel/0.png' ;
 	/ITL/scene/tl scale 0.5;
 	/ITL/scene/tl penWidth 1;
 	/ITL/scene/tl color white;
@@ -333,11 +369,20 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 
 
 </body>
+<script>
 
-<!-- <script>
-client=false;
-refresh();
 
-</script> -->
+
+
+
+	const myTimeout = setTimeout(myGreeting, 2000);
+
+function myGreeting() {
+	
+	document.getElementById("choral").click(); ;
+
+}
+	
+	</script>
 
 </html>
