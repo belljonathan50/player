@@ -9,7 +9,7 @@ ts.on('change', function (offset) {
 });
 setInterval(function () {
   var now = new Date(ts.now());
-  console.log(now);
+  // console.log(now);
 }, 5000);
 
    // init delay
@@ -47,22 +47,32 @@ setInterval(function () {
 
   switch(header) {
     case "play":
-      // code block
-      if (value == 1){ if (thispath == 'vid'){
-        let video = document.getElementById("vid"); 
-        video.play();}};
-      if (value == 0){ if (thispath == 'vid'){
-        console.log("stoooooooop"+ value)
-            let video = document.getElementById("vid"); 
-            video.pause();}};
+      if (value == 1){sound.play(); console.log("plaaaaaaaaay")}
+      if (value == 0){sound.pause(); console.log("paussssse")}
+         
+      // for videos
+      // if (value == 1){ if (thispath == 'vid'){
+      //   let video = document.getElementById("vid"); 
+      //   video.play();}};
+      // if (value == 0){ if (thispath == 'vid'){
+      //   console.log("stoooooooop"+ value)
+      //       let video = document.getElementById("vid"); 
+      //       video.pause();}};
+    
+    
       break;
     case "seek":
       // code block
+      sound.seek(value);
+      console.log("seek "+ value)
+
       // synth.locateMIDI(value);
       if (thispath == "vid"){console.log("ededededzdzdzdzdsdsdsds"+ value)
        let video = document.getElementById("vid");
       video.currentTime = value;
       video.pause()}
+
+
       break;
     case "tune":
       // code block
@@ -122,13 +132,26 @@ setInterval(function () {
     case "soundSeek":
       if (thispath == value){console.log("seededeeel");  sound.seek(12);}; 
         break; 
-            
-            
-    break; 
 
     case "dummy":
         console.log("dummy");
         break; 
+
+    // case "update":
+    //       console.log(value);
+    //       var myup = JSON.parse(value);
+    //       var myFile = "audio/sound1/percussion.mp3";
+    //       console.log(myFile);
+
+    //       window.updatedPath = "/"+ myup.data.media+"/"+ thispath+"/"+ myup.data.tune+".mp3";
+
+    //       if(myFile != updatedPath)
+    //         {
+    //           sound.src = updatedPath;
+    //           console.log("updated")
+    //         }
+    //       break; 
+
     default:
       // code block
   }
