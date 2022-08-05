@@ -2,6 +2,8 @@
   "isPlaying": "false",
   "rate": 1,
   "tune":"tallis", 
+  "media": "audio", 
+  "page": 0, 
   "seek": 0,
   "currentTime": 0, 
   "lag":500,
