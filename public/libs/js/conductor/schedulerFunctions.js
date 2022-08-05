@@ -59,13 +59,8 @@ sched.on("stop", function() {
 
 
 
-function stop() {
+function stopSched() {
   sched.stop(true);
-  
-  ws.send('soundStop sound1 '+futuredate);
-  ws.send('soundStop sound2 '+futuredate);
-  ws.send('soundStop sound3 '+futuredate);
-  ws.send('soundStop sound4 '+futuredate);
 }
 
 document.addEventListener("visibilitychange", () => {
