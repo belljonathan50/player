@@ -57,6 +57,18 @@ inscore.msgAddI(msg2, 4);
 inscore.postMessage('/ITL/scene/tl',msg2);
 ">choral</button>
 
+<button id="choralich" type="button" onclick="
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/chorale/1.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('choral mitchel');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 155);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+">choralich</button>
+
 <button id="but" type="button" onclick="
 var msg = inscore.newMessageM('set');
 inscore.msgAddStr(msg, 'img');
@@ -379,7 +391,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 
 function myGreeting() {
 	
-	document.getElementById("choral").click(); ;
+	document.getElementById("choralich").click(); ;
 
 }
 	
