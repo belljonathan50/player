@@ -13,8 +13,11 @@ let voice = Strvoice.split(" ");
 
 console.log(voice.length, cent.length, onset.length);
 
-console.log(voice[0]);
+console.log(cent[0]);
 
+
+
+fs.writeFileSync('/Users/jonathanbell/Documents/GitHub/player/public/libs/bach.txt', '');
 
 for (let i = 0 ; i < voice.length; i++) {
 
@@ -23,7 +26,7 @@ for (let i = 0 ; i < voice.length; i++) {
 
     fs.appendFileSync('/Users/jonathanbell/Documents/GitHub/player/public/libs/bach.txt', 
    
-    "sched.insert(t0 +  " + onset[i] + ", ticktack, { voice: '" + voice[i]  +  "', note: " + cent[i]+ "});"+ "\n" 
+    "sched.insert(t0 +  " + onset[i] + ", pitch, { voice: '" + voice[i]  +  "', note: " + cent[i]+ "});"+ "\n" 
     , 
     function (err) {
         if (err) throw err;
