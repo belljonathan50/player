@@ -1,6 +1,6 @@
 const cars = [
 
-  "DO2", "DOd2", "DO2", "DOd2", "REb2", "RE2", "REd2", "MIb2", "MI2", "FA2", "FAd2", "SOLb2", "SOL2", "SOLd", "LAb2", "LA2", "LAd2", "SIb2", "SI2", "DO3", "DOd3", "REb3", "RE3", "REd3", "MIb3", "MI3", "FA3", "FAd3", "SOLb3", "SOL3", "SOLd", "LAb3", "LA3", "LAd3", "SIb3", "SI3", "DO4", "DOd4", "REb4", "RE4", "REd4", "MIb4", "MI4", "FA4", "FAd4", "SOLb4", "SOL4", "SOLd", "LAb4", "LA4", "LAd4", "SIb4", "SI4", "DO5", "DOd5", "REb5", "RE5", "REd5", "MIb5", "MI5", "FA5", "FAd5", "SOLb5", "SOL5", "SOLd", "LAb5", "LA5", "LAd5", "SIb5", "SI5"
+  "DO2", "DOd2", "REb2", "RE2", "REd2", "MIb2", "MI2", "FA2", "FAd2", "SOLb2", "SOL2", "SOLd", "LAb2", "LA2", "LAd2", "SIb2", "SI2", "DO3", "DOd3", "REb3", "RE3", "REd3", "MIb3", "MI3", "FA3", "FAd3", "SOLb3", "SOL3", "SOLd", "LAb3", "LA3", "LAd3", "SIb3", "SI3", "DO4", "DOd4", "REb4", "RE4", "REd4", "MIb4", "MI4", "FA4", "FAd4", "SOLb4", "SOL4", "SOLd", "LAb4", "LA4", "LAd4", "SIb4", "SI4", "DO5", "DOd5", "REb5", "RE5", "REd5", "MIb5", "MI5", "FA5", "FAd5", "SOLb5", "SOL5", "SOLd", "LAb5", "LA5", "LAd5", "SIb5", "SI5"
 
 ];
 
@@ -32,7 +32,7 @@ setInterval(function () {
     
 
       var str = msg.data;
-      console.log(str);
+      console.log("data"+str);
 
       var obj = str.split(' ');
       var header = obj[0] ;
@@ -75,7 +75,7 @@ setInterval(function () {
           sound.play(cars[note]);
           break;
         case "bas":
-          if (thispath == value){playNote(note);};
+        
           break; }
       break;
     case "play":
