@@ -47,18 +47,15 @@ setInterval(function () {
 
   switch(header) {
     case "play":
-      if (value == 1){sound.play(); console.log("plaaaaaaaaay")}
-      if (value == 0){sound.pause(); console.log("paussssse")}
-         
-      // for videos
-      // if (value == 1){ if (thispath == 'vid'){
-      //   let video = document.getElementById("vid"); 
-      //   video.play();}};
-      // if (value == 0){ if (thispath == 'vid'){
-      //   console.log("stoooooooop"+ value)
-      //       let video = document.getElementById("vid"); 
-      //       video.pause();}};
+      if (value == 1){sound.play(); console.log("plaaaaaaaaay"); 
+        let video = document.getElementById("vid"); 
+        video.play()}
+      if (value == 0){sound.pause(); console.log("paussssse");
+      let video = document.getElementById("vid"); 
+      video.pause()
     
+    }
+         
     
       break;
     case "seek":
