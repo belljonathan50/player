@@ -25,6 +25,7 @@ console.log(delay);
     
 
       var str = msg.data;
+      console.log("incoming" + str);
       var obj = str.split(' ');
       var header = obj[0] ;
       var value =  obj[1] ;
@@ -46,28 +47,33 @@ console.log(delay);
 
 
   switch(header) {
-    case "video":
-      // code block
-      if (value == 1){ 
-        console.log(str);console.log(str);
+    // case "video":
+    //   // code block
+    //   if (value == 1){ 
+    //     console.log(str);console.log(str);
+    //     let video = document.getElementById("vid"); 
+    //     video.play();};
+    //   if (value == 0){ if (thispath == 'vid'){
+    //     console.log("stoooooooop"+ value)
+    //         let video = document.getElementById("vid"); 
+    //         video.pause();}};
+    //   break;
+
+
+      case "play":
+      if (value == 1){console.log("plaaaaaaaaay"); 
         let video = document.getElementById("vid"); 
-        video.play();};
-      if (value == 0){ if (thispath == 'vid'){
-        console.log("stoooooooop"+ value)
-            let video = document.getElementById("vid"); 
-            video.pause();}};
-      break;
+        video.play()} 
+    //     else if (value == 0){console.log("paussssse");
+    //   let video = document.getElementById("vid"); 
+    //   video.pause()
+    // }
+
     case "seek":
       // code block
       let video = document.getElementById("vid");
       video.currentTime = value;
       video.pause()
-      break;
-    case "tune":
-      // code block
-      console.log("I tune "+value);
-      loadMidiUrl('/midi/'+thispath+'/'+value+'.mid');
-      
       break;
 
     case "dummy":
@@ -86,15 +92,15 @@ console.log(delay);
 
 
  // play notes
-function myFunction(p1) {
-  synth.send([0x90,p1,100])
-}
+// function myFunction(p1) {
+//   synth.send([0x90,p1,100])
+// }
 
-function changePage(p1) {
-  var img = document.getElementById("img");
-  img.src = "./images/" +thispath  + "/"+p1 + ".png";
-console.log(img.src)
-}
+// function changePage(p1) {
+//   var img = document.getElementById("img");
+//   img.src = "./images/" +thispath  + "/"+p1 + ".png";
+// console.log(img.src)
+// }
 
 
 
