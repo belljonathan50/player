@@ -1,0 +1,244 @@
+function start(radiotune, onset) {
+  window.tzero = onset;
+  sched.start(radiotune);
+}
+
+
+// "DO2", "DOd2", "DO2", "DOd2", "REb2", "RE2", "REd2", "MIb2", "MI2", "FA2", "FAd2", "SOLb2", "SOL2", "SOLd", "LAb2", "LA2", "LAd2", "SIb2", "SI2", "DO3", "DOd3", "REb3", "RE3", "REd3", "MIb3", "MI3", "FA3", "FAd3", "SOLb3", "SOL3", "SOLd", "LAb3", "LA3", "LAd3", "SIb3", "SI3", "DO4", "DOd4", "REb4", "RE4", "REd4", "MIb4", "MI4", "FA4", "FAd4", "SOLb4", "SOL4", "SOLd", "LAb4", "LA4", "LAd4", "SIb4", "SI4", "DO5", "DOd5", "REb5", "RE5", "REd5", "MIb5", "MI5", "FA5", "FAd5", "SOLb5", "SOL5", "SOLd", "LAb5", "LA5", "LAd5", "SIb5", "SI5"
+
+
+
+function bach(e) {
+
+  
+  var t0 = e.playbackTime - tzero;
+
+
+sched.insert(t0 +  0.0000, pitch, { voice: 'bas', note: 10});
+sched.insert(t0 +  0.5, pitch, { voice: 'ten', note: 33});
+sched.insert(t0 +  1, pitch, { voice: 'alt', note: 23});
+sched.insert(t0 +  1.5, pitch, { voice: 'sop', note: 52});
+// sched.insert(t0 +  162.0712, pitch, { voice: 'ten', note: 57});
+// sched.insert(t0 +  162.4455, pitch, { voice: 'alt', note: 67});
+// sched.insert(t0 +  162.8285, pitch, { voice: 'alt', note: 66});
+sched.insert(t0 + 4.000, bach);
+}
+
+
+function metronome(e) {
+  var t0 = e.playbackTime;
+  sched.insert(t0 + 0.000, pitch, { voice: 'sop', note: 60 });
+  sched.insert(t0 + 0.500, page, { voice: 'sop', npage: 0  });
+  sched.insert(t0 + 0.500, pitch, { voice: 'alt', note: 61  });
+  sched.insert(t0 + 1.000, pitch, { voice: 'ten', note: 62  });
+  sched.insert(t0 + 1.500, pitch, { voice: 'bas', note: 63  });
+  sched.insert(t0 + 1.500, page, { voice: 'sop', npage: 1  });
+  sched.insert(t0 + 2.000, metronome);
+}
+
+function ray(e) {
+
+  var t0 = e.playbackTime - tzero;
+ 
+  sched.insert(t0 +  0.487804, pitch, { voice: 'sop', note: 81});
+  sched.insert(t0 +  0.487804, pitch, { voice: 'alt', note: 81});
+  sched.insert(t0 +  0.487804, pitch, { voice: 'ten', note: 69});
+  sched.insert(t0 +  0.715077, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  0.790834, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  0.942349, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  1.093864, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  1.169622, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  1.396894, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  1.396894, pitch, { voice: 'ten', note: 65});
+  sched.insert(t0 +  1.624167, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  1.851439, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  2.002954, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  2.078712, pitch, { voice: 'sop', note: 81});
+  sched.insert(t0 +  2.305984, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  2.305984, pitch, { voice: 'ten', note: 62});
+  sched.insert(t0 +  2.533257, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  2.609014, pitch, { voice: 'alt', note: 81});
+  sched.insert(t0 +  2.987802, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  3.215074, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  3.215074, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  3.215074, pitch, { voice: 'ten', note: 65});
+  sched.insert(t0 +  3.442346, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  3.821134, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  3.896891, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  4.124164, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  4.124164, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  4.351437, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  4.427194, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  4.805982, pitch, { voice: 'sop', note: 79});
+  sched.insert(t0 +  5.033254, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  5.033254, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  5.033254, pitch, { voice: 'ten', note: 62});
+  sched.insert(t0 +  5.260527, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  5.336284, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  5.639314, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  5.715072, pitch, { voice: 'sop', note: 76});
+  sched.insert(t0 +  5.942344, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  5.942344, pitch, { voice: 'ten', note: 65});
+  sched.insert(t0 +  6.245374, pitch, { voice: 'alt', note: 79});
+  sched.insert(t0 +  6.548404, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  6.624162, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  6.851434, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  6.851434, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  6.851434, pitch, { voice: 'ten', note: 69});
+  sched.insert(t0 +  7.305979, pitch, { voice: 'sop', note: 79});
+  sched.insert(t0 +  7.457494, pitch, { voice: 'alt', note: 76});
+  sched.insert(t0 +  7.760524, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  7.987797, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  8.442342, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  8.669614, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  8.669614, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  8.669614, pitch, { voice: 'ten', note: 65});
+  sched.insert(t0 +  8.896887, pitch, { voice: 'sop', note: 70});
+  sched.insert(t0 +  8.972644, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  9.351432, pitch, { voice: 'sop', note: 69});
+  sched.insert(t0 +  9.578704, pitch, { voice: 'sop', note: 67});
+  sched.insert(t0 +  9.578704, pitch, { voice: 'alt', note: 79});
+  sched.insert(t0 +  10.033249, pitch, { voice: 'sop', note: 67});
+  sched.insert(t0 +  10.487794, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  10.487794, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  10.487794, pitch, { voice: 'ten', note: 62});
+  sched.insert(t0 +  10.715067, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  10.942339, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  11.093854, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  11.396884, pitch, { voice: 'sop', note: 79});
+  sched.insert(t0 +  11.396884, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  11.396884, pitch, { voice: 'ten', note: 62});
+  sched.insert(t0 +  11.624156, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  11.699914, pitch, { voice: 'alt', note: 70});
+  sched.insert(t0 +  12.078702, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  12.305974, pitch, { voice: 'sop', note: 76});
+  sched.insert(t0 +  12.305974, pitch, { voice: 'alt', note: 69});
+  sched.insert(t0 +  12.305974, pitch, { voice: 'ten', note: 60});
+  sched.insert(t0 +  12.609004, pitch, { voice: 'alt', note: 67});
+  sched.insert(t0 +  12.987792, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  13.215064, pitch, { voice: 'sop', note: 79});
+  sched.insert(t0 +  13.215064, pitch, { voice: 'alt', note: 67});
+  sched.insert(t0 +  13.442336, pitch, { voice: 'sop', note: 76});
+  sched.insert(t0 +  13.821124, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  13.896882, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  14.124154, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  14.124154, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  14.124154, pitch, { voice: 'ten', note: 62});
+  sched.insert(t0 +  14.351427, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  14.427184, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  14.805972, pitch, { voice: 'sop', note: 70});
+  sched.insert(t0 +  15.033244, pitch, { voice: 'sop', note: 67});
+  sched.insert(t0 +  15.033244, pitch, { voice: 'alt', note: 79});
+  sched.insert(t0 +  15.033244, pitch, { voice: 'ten', note: 65});
+  sched.insert(t0 +  15.260517, pitch, { voice: 'sop', note: 69});
+  sched.insert(t0 +  15.336274, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  15.487789, pitch, { voice: 'sop', note: 70});
+  sched.insert(t0 +  15.715061, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  15.942334, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  15.942334, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  15.942334, pitch, { voice: 'ten', note: 60});
+  sched.insert(t0 +  16.169607, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  16.245364, pitch, { voice: 'alt', note: 76});
+  sched.insert(t0 +  16.624151, pitch, { voice: 'sop', note: 71});
+  sched.insert(t0 +  16.851424, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  17.078697, pitch, { voice: 'sop', note: 69});
+  sched.insert(t0 +  17.154454, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  17.305969, pitch, { voice: 'sop', note: 69});
+  sched.insert(t0 +  17.457484, pitch, { voice: 'alt', note: 79});
+  sched.insert(t0 +  17.533242, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  17.760514, pitch, { voice: 'sop', note: 71});
+  sched.insert(t0 +  17.760514, pitch, { voice: 'alt', note: 76});
+  sched.insert(t0 +  17.760514, pitch, { voice: 'ten', note: 67});
+  sched.insert(t0 +  18.215059, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  18.366574, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  18.669604, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  18.669604, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  18.669604, pitch, { voice: 'ten', note: 65});
+  sched.insert(t0 +  18.972634, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  19.124149, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  19.351422, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  19.578694, pitch, { voice: 'alt', note: 70});
+  sched.insert(t0 +  19.578694, pitch, { voice: 'ten', note: 62});
+  sched.insert(t0 +  19.805966, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  19.881724, pitch, { voice: 'alt', note: 67});
+  sched.insert(t0 +  20.184754, pitch, { voice: 'alt', note: 69});
+  sched.insert(t0 +  20.260512, pitch, { voice: 'sop', note: 81});
+  sched.insert(t0 +  20.487784, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  20.487784, pitch, { voice: 'alt', note: 70});
+  sched.insert(t0 +  20.715056, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  20.790814, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  21.093844, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  21.169602, pitch, { voice: 'sop', note: 79});
+  sched.insert(t0 +  21.396874, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  21.396874, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  21.396874, pitch, { voice: 'ten', note: 64});
+  sched.insert(t0 +  21.851419, pitch, { voice: 'sop', note: 79});
+  sched.insert(t0 +  22.002934, pitch, { voice: 'alt', note: 71});
+  sched.insert(t0 +  22.305964, pitch, { voice: 'sop', note: 81});
+  sched.insert(t0 +  22.305964, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  22.305964, pitch, { voice: 'ten', note: 62});
+  sched.insert(t0 +  22.608994, pitch, { voice: 'alt', note: 69});
+  sched.insert(t0 +  22.760509, pitch, { voice: 'sop', note: 81});
+  sched.insert(t0 +  22.912024, pitch, { voice: 'alt', note: 69});
+  sched.insert(t0 +  22.987781, pitch, { voice: 'sop', note: 81});
+  sched.insert(t0 +  23.215054, pitch, { voice: 'sop', note: 81});
+  sched.insert(t0 +  23.215054, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  23.518084, pitch, { voice: 'alt', note: 71});
+  sched.insert(t0 +  23.669599, pitch, { voice: 'sop', note: 81});
+  sched.insert(t0 +  24.124144, pitch, { voice: 'sop', note: 69});
+  sched.insert(t0 +  24.124144, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  24.351417, pitch, { voice: 'sop', note: 70});
+  sched.insert(t0 +  24.578689, pitch, { voice: 'sop', note: 69});
+  sched.insert(t0 +  24.730204, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  25.033234, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  25.033234, pitch, { voice: 'ten', note: 60});
+  sched.insert(t0 +  25.336264, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  25.487779, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  25.639294, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  25.715052, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  25.942324, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  25.942324, pitch, { voice: 'ten', note: 65});
+  sched.insert(t0 +  26.245354, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  26.396869, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  26.851414, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  26.851414, pitch, { voice: 'alt', note: 81});
+  sched.insert(t0 +  27.078686, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  27.154444, pitch, { voice: 'alt', note: 74});
+  sched.insert(t0 +  27.457474, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  27.533232, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  27.760504, pitch, { voice: 'sop', note: 70});
+  sched.insert(t0 +  27.760504, pitch, { voice: 'ten', note: 67});
+  sched.insert(t0 +  28.063534, pitch, { voice: 'alt', note: 79});
+  sched.insert(t0 +  28.366564, pitch, { voice: 'alt', note: 77});
+  sched.insert(t0 +  28.442322, pitch, { voice: 'sop', note: 70});
+  sched.insert(t0 +  28.669594, pitch, { voice: 'sop', note: 70});
+  sched.insert(t0 +  28.972624, pitch, { voice: 'alt', note: 79});
+  sched.insert(t0 +  29.124139, pitch, { voice: 'sop', note: 70});
+  sched.insert(t0 +  29.578684, pitch, { voice: 'sop', note: 69});
+  sched.insert(t0 +  29.578684, pitch, { voice: 'alt', note: 81});
+  sched.insert(t0 +  29.805957, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  30.184744, pitch, { voice: 'alt', note: 81});
+  sched.insert(t0 +  30.260502, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  30.487774, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  30.487774, pitch, { voice: 'alt', note: 81});
+  sched.insert(t0 +  30.487774, pitch, { voice: 'ten', note: 65});
+  sched.insert(t0 +  30.715047, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  30.790804, pitch, { voice: 'alt', note: 81});
+  sched.insert(t0 +  31.169591, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  31.396864, pitch, { voice: 'sop', note: 72});
+  sched.insert(t0 +  31.396864, pitch, { voice: 'alt', note: 81});
+  sched.insert(t0 +  31.627633, pitch, { voice: 'sop', note: 74});
+  sched.insert(t0 +  31.860191, pitch, { voice: 'sop', note: 76});
+  sched.insert(t0 +  32.016441, pitch, { voice: 'alt', note: 69});
+  sched.insert(t0 +  32.094566, pitch, { voice: 'sop', note: 77});
+  sched.insert(t0 +  32.330786, pitch, { voice: 'sop', note: 79});
+  sched.insert(t0 +  32.330786, pitch, { voice: 'alt', note: 70});
+  sched.insert(t0 +  32.330786, pitch, { voice: 'ten', note: 62});
+  sched.insert(t0 +  32.574688, pitch, { voice: 'sop', note: 78});
+  sched.insert(t0 +  32.659434, pitch, { voice: 'alt', note: 69});
+  sched.insert(t0 +  33.094411, pitch, { voice: 'sop', note: 76});
+  sched.insert(t0 +  33.364681, pitch, { voice: 'sop', note: 79});
+  sched.insert(t0 +  33.364681, pitch, { voice: 'alt', note: 72});
+  sched.insert(t0 +  33.364681, pitch, { voice: 'ten', note: 60});
+  sched.insert(t0 + 35.000, ray);
+}
