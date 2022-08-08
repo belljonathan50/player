@@ -121,7 +121,7 @@ setInterval(function () {
                   break;
                 case "ten":
                   // code block
-                  if (thispath == value){changePage(note)}; 
+                  if (thispath == "vocaloid3"){changePage(note)}; 
                   break;
                 case "bas":
                   if (thispath == value){changePage(note)}; 
