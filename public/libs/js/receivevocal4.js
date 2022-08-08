@@ -124,7 +124,7 @@ sound.play(cars[note]);
                   if (thispath == value){changePage(note)}; 
                   break;
                 case "bas":
-                  if (thispath == value){changePage(note)}; 
+                  if (thispath == "vocaloid4"){changePage(note)}; 
                   break; }
         break; 
 
