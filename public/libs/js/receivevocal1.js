@@ -113,7 +113,7 @@ sound.play(cars[note]);
               switch(value) {
                 case "sop":
                   // code block
-                  if (thispath == value){changePage(note)}; 
+                  if (thispath == "vocaloid1"){changePage(note)}; 
                   break;
                 case "alt":
                   // code block
