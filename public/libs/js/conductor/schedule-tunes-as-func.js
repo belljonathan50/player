@@ -12,6 +12,10 @@ function bach(e) {
 
   
   var t0 = e.playbackTime - tzero;
+  sched.insert(t0 +  0.500, page, { voice: 'sop', npage: 0  });
+  sched.insert(t0 +  0.500, page, { voice: 'alt', npage: 0  });
+  sched.insert(t0 +  0.500, page, { voice: 'ten', npage: 0  });
+  sched.insert(t0 +  0.500, page, { voice: 'bas', npage: 0  });
   sched.insert(t0 +  0.0000, pitch, { voice: 'alt', note: 37});
   sched.insert(t0 +  1.0435, pitch, { voice: 'alt', note: 47});
   sched.insert(t0 +  2.0870, pitch, { voice: 'alt', note: 41});
@@ -298,6 +302,12 @@ function bach(e) {
   sched.insert(t0 +  59.4782, pitch, { voice: 'alt', note: 46});
   sched.insert(t0 +  59.4782, pitch, { voice: 'sop', note: 57});
   sched.insert(t0 +  59.7391, pitch, { voice: 'ten', note: 37});
+
+  sched.insert(t0 +  60, page, { voice: 'sop', npage: 1  });
+  sched.insert(t0 +  60, page, { voice: 'alt', npage: 1  });
+  sched.insert(t0 +  60, page, { voice: 'ten', npage: 1  });
+  sched.insert(t0 +  60, page, { voice: 'bas', npage: 1  });
+
   sched.insert(t0 +  60.0000, pitch, { voice: 'ten', note: 34});
   sched.insert(t0 +  60.2609, pitch, { voice: 'ten', note: 33});
   sched.insert(t0 +  60.5217, pitch, { voice: 'bas', note: 30});
@@ -530,7 +540,7 @@ function bach(e) {
 // sched.insert(t0 +  162.0712, pitch, { voice: 'ten', note: 57});
 // sched.insert(t0 +  162.4455, pitch, { voice: 'alt', note: 67});
 // sched.insert(t0 +  162.8285, pitch, { voice: 'alt', note: 66});
-sched.insert(t0 + 200.000, bach);
+sched.insert(t0 + 140.000, bach);
 }
 
 
