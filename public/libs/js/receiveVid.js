@@ -25,7 +25,7 @@ console.log(delay);
     
 
       var str = msg.data;
-      console.log("incoming" + str);
+      console.log("incoming " + str);
       var obj = str.split(' ');
       var header = obj[0] ;
       var value =  obj[1] ;
@@ -55,11 +55,18 @@ console.log(delay);
     //     video.play();};
     //   if (value == 0){ if (thispath == 'vid'){
     //     console.log("stoooooooop"+ value)
-    //         let video = document.getElementById("vid"); 
+            // let video = document.getElementById("vid"); 
     //         video.pause();}};
     //   break;
-
-
+    case "turn":
+        let video = document.getElementById("vid"); 
+        video.currentTime = 0;
+        video.play()
+    //     else if (value == 0){console.log("paussssse");
+    //   let video = document.getElementById("vid"); 
+    //   video.pause()
+    // }
+    break;
       case "play":
       if (value == 1){console.log("plaaaaaaaaay"); 
         let video = document.getElementById("vid"); 
@@ -71,9 +78,9 @@ console.log(delay);
 
     case "seek":
       // code block
-      let video = document.getElementById("vid");
-      video.currentTime = value;
-      video.pause()
+      // let video = document.getElementById("vid");
+      // video.currentTime = value;
+      // video.pause()
       break;
 
     case "dummy":
