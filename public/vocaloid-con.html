@@ -14,7 +14,7 @@
     <script src="/libs/js/conductor/schedule-tunes-as-func.js"></script>  
 	<script src="/libs/js/conductor/schedulerFunctions.js"></script>
 	<script src="libs/js/conductor/InscoreFunctions.js"></script>
-	<script src="libs/js/conductor/mediaFunctions.js"></script>
+	<!-- <script src="libs/js/conductor/mediaFunctions.js"></script> -->
 	<script> window.GlobalLag= 500;window.thistune= "kunst";</script>
 
 </head>
@@ -24,9 +24,6 @@
 
 
     <script>
-        // timetag getTime
-       
-
         var HOST = location.origin.replace(/^http/, 'ws');
         var ws = new WebSocket(HOST);
 
@@ -97,15 +94,75 @@ ws.send('update');
 
 <button type="button" onclick="start(metronome); window.thistune = 'kunst'">sched start metronome</button>
 <button type="button" onclick="start(ray)">sched start ray"</button> -->
-<button type="button" id="clickstartbach" style="color:rgb(28, 163, 175);" onclick="start(bach, 0); window.thistune  = 'kunst'">kunst</button>
-<button type="button" id="clickstartbach" style="color:rgb(14, 106, 39);" onclick="start(medee, 0); window.thistune  = 'medee'">medee</button>
-<button type="button" id="clickstartbach" style="color:red;" onclick="start(orfeo, 0); window.thistune  = 'orfeo'">start orfeo</button>
+<button type="button" id="clickstartbach" style="color:rgb(28, 163, 175);" onclick="
+window.thistune  = 'kunst'
+
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/kunst/0.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('tune bach');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 115);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+">kunst</button>
+
+
+
+<button type="button" id="clickstartbach" style="color:rgb(0, 26, 255);" onclick="
+window.thistune  = 'jesu';
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/chorale/jesu.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('tune jesu');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 60);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+">jesu works!!!!!!!!!</button>
+
+
+<button type="button" id="clickstartbach" style="color:rgb(14, 106, 39);" onclick="
+window.thistune  = 'medee';
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/medee/0.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('tune jesu');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 60);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+">medee</button>
+
+<button type="button" id="clickstartbach" style="color:red;" onclick="
+window.thistune  = 'orfeeo';
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/orfeo/0.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('tune jesu');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 60);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+
+">orfeo</button>
+
+
 <button type="button" id="clickstartbach" style="color:rgb(0, 26, 255);" onclick="start(happy, 0); window.thistune  = 'happy'">happy warmup</button>
 <button type="button" id="clickstartbach" style="color:rgb(0, 26, 255);" onclick="start(happy, 14); window.thistune  = 'happy'">happy day</button>
-<button type="button" id="clickstartbach" style="color:rgb(0, 26, 255);" onclick="start(jesu, 0); window.thistune  = 'jesu'">jesu</button>
+
 <br>
 <button type="button" style="color:red;" onclick="sched.stop()">stop</button>
 <br>
+
+
+
+
+
 
 <button id="choral" type="button" onclick="
 var msg = inscore.newMessageM('set');
@@ -289,32 +346,23 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 <pre>
 	/ITL/scene watch PLAY (
 		/ITL/scene/javascript run "playAt()",
-		/ITL/scene/javascript run "storedDate(speed)"
+		/ITL/scene/javascript run "storedDate(speed)",
+		/ITL/scene/javascript run "ws.send ('play 1')"		
 	);
 
 	/ITL/scene watch STOP (
 		/ITL/scene/pos tempo 0,
 		/ITL/scene/pos date 0,
-		/ITL/scene/javascript run "stopSched()",
-		/ITL/scene/javascript run "stopMedia()",
-		/ITL/scene/javascript run "pauseVid()",
-		/ITL/scene/javascript run "lastStop()"
+		/ITL/scene/javascript run "ws.send ('seek 0')",
+		/ITL/scene/javascript run "ws.send ('play 0')"
 	);
-	
-	/ITL/scene watch PAUSE (
-		/ITL/scene/javascript run "stopSched()",
-		/ITL/scene/javascript run "pauseVid()",
-		/ITL/scene/javascript run "pauseMedia()",
-		/ITL/scene/pos tempo 0,
-		/ITL/scene/javascript run "ws.send ('play '+0)"
-	);
+
 
 	/ITL/scene watch REWIND (
 		/ITL/scene/pos tempo 0,
-		/ITL/scene/javascript run "stopSched()",
-		/ITL/scene/javascript run "pauseVid()",
-		/ITL/scene/javascript run "pauseMedia()",
-		/ITL/scene/javascript run "lastTime()"
+		/ITL/scene/javascript run "ws.send ('play 0')",
+		/ITL/scene/javascript run "lastTime()",
+		/ITL/scene/javascript run "sched.stop()"
 	);
 
 
@@ -338,14 +386,10 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 	
 	/ITL/scene/playPanel/play set img $play;
 	/ITL/scene/playPanel/stop set img $stop;
-	/ITL/scene/playPanel/pause set img $rewind;
 	/ITL/scene/playPanel/play xorigin $origin;
 	/ITL/scene/playPanel/stop xorigin -$origin;
-	/ITL/scene/playPanel/pause xorigin 0;
 	/ITL/scene/playPanel/* yorigin -5;
 	/ITL/scene/playPanel/* width 1;
-	/ITL/scene/playPanel/pause width 0.3;
-	/ITL/scene/playPanel/pause yorigin -16;
 	/ITL/scene/playPanel/* alpha $alpha;
 	
 	/ITL/scene/playPanel watch STOP (
@@ -355,16 +399,12 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 		/ITL/scene/playPanel/play pop
 	);
 
-	/ITL/scene/playPanel watch PAUSE (
-		/ITL/scene event PAUSE,
-		/ITL/scene/playPanel/pause pop
-	);
+
 
 	
 	/ITL/scene/playPanel/* watch mouseEnter (/ITL/scene/playPanel/$self alpha 256);
 	/ITL/scene/playPanel/* watch mouseLeave (/ITL/scene/playPanel/$self alpha $alpha);
 	/ITL/scene/playPanel/stop watch mouseDown ( /ITL/scene/playPanel event STOP );
-	/ITL/scene/playPanel/pause watch mouseDown ( /ITL/scene/playPanel event PAUSE );
 	
 	/ITL/scene/playPanel/play watch mouseDown (
 		/ITL/scene/playPanel/play push,
@@ -376,19 +416,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 			/ITL/scene/playPanel/play pop
 		)
 	);
-
-	/ITL/scene/playPanel/pause watch mouseDown (
-		/ITL/scene/playPanel/pause push,
-		/ITL/scene/playPanel/pause set img $play,
-		/ITL/scene event PAUSE,
-		/ITL/scene/playPanel/pause watch mouseDown (
-			/ITL/scene/playPanel/pause set img $play,
-			/ITL/scene event PLAY,
-			/ITL/scene/playPanel/pause pop
-		)
-	);
 	
-	/ITL/scene/playPanel watch keyDown " " (/ITL/scene/playPanel/play event mouseDown 0 0);
 	
 	###############################
 	# keyboard control
@@ -397,7 +425,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 		/ITL/scene push,
 		/ITL/scene event PLAY,
 		/ITL/scene watch keyDown " " ( 
-			/ITL/scene event PAUSE,
+			/ITL/scene event REWIND,
 			/ITL/scene pop
 		)
 	);
@@ -419,7 +447,8 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 
 	move = ( 
 		/ITL/scene/pos date '$date%f',
-		/ITL/scene/javascript run "store('$date%f')"
+		/ITL/scene/javascript run "store('$date%f')",
+		/ITL/scene/javascript run "ws.send ('play 0')"
 	);
 
 	/ITL/scene/tl watch mouseDown $move;
