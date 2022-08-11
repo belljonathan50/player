@@ -1,20 +1,20 @@
-  // sync instanciation
+//   // sync instanciation
  
- var ts = timesync.create({
-  server: '/timesync',
-  interval: 10000
-});
+//  var ts = timesync.create({
+//   server: '/timesync',
+//   interval: 10000
+// });
 
-ts.on('change', function (offset) {
-});
-setInterval(function () {
-  var now = new Date(ts.now());
-  console.log(now);
-}, 5000);
+// ts.on('change', function (offset) {
+// });
+// setInterval(function () {
+//   var now = new Date(ts.now());
+//   // console.log(now);
+// }, 5000);
 
 console.log(delay);
 
- if (thispath != 'vid'){delay = 0}
+//  if (thispath != 'vid'){delay = 0}
 
 
 (function() {
@@ -25,15 +25,15 @@ console.log(delay);
     
 
       var str = msg.data;
-      console.log("incoming " + str);
+      // console.log("incoming " + str);
       var obj = str.split(' ');
       var header = obj[0] ;
       var value =  obj[1] ;
       var when = obj[2] ;
       var note = obj[3] ;
 
-    var NowClientSide = new Date(ts.now());
-    var NowClientNum = NowClientSide.getTime()
+    // var NowClientSide = new Date(ts.now());
+    // var NowClientNum = NowClientSide.getTime()
 
 
 
@@ -47,41 +47,24 @@ console.log(delay);
 
 
   switch(header) {
-    // case "video":
-    //   // code block
-    //   if (value == 1){ 
-    //     console.log(str);console.log(str);
-    //     let video = document.getElementById("vid"); 
-    //     video.play();};
-    //   if (value == 0){ if (thispath == 'vid'){
-    //     console.log("stoooooooop"+ value)
-            // let video = document.getElementById("vid"); 
-    //         video.pause();}};
-    //   break;
-    case "turn":
-        let video = document.getElementById("vid"); 
-        video.currentTime = 0;
-        video.play()
-    //     else if (value == 0){console.log("paussssse");
-    //   let video = document.getElementById("vid"); 
-    //   video.pause()
-    // }
-    break;
-      case "play":
-      if (value == 1){console.log("plaaaaaaaaay"); 
-        let video = document.getElementById("vid"); 
-        video.play()} 
-    //     else if (value == 0){console.log("paussssse");
-    //   let video = document.getElementById("vid"); 
-    //   video.pause()
-    // }
 
+    case "play":
+      if (value == 1)
+        {video.play()} 
+      else
+      {video.pause()} 
+    break;
+     
     case "seek":
-      // code block
-      // let video = document.getElementById("vid");
-      // video.currentTime = value;
-      // video.pause()
+      
+      video.currentTime = value;
+      video.pause()
       break;
+
+    case "tune":
+        video.src = "libs/vids/"+value+".mp4";
+        video.pause()
+        break;
 
     case "dummy":
         console.log("dummy");
