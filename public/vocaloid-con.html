@@ -123,6 +123,19 @@ inscore.msgAddI(msg2, 4);
 inscore.postMessage('/ITL/scene/tl',msg2);
 ">jesu works!!!!!!!!!</button>
 
+<button type="button" id="clickstartbach" style="color:rgb(218, 0, 0);" onclick="
+window.thistune  = 'moro';
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' images/score/moro/0.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('tune moro');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 75);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+">moro</button>
+
 
 <button type="button" id="clickstartbach" style="color:rgb(14, 106, 39);" onclick="
 window.thistune  = 'medee';
