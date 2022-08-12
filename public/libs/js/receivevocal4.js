@@ -59,11 +59,9 @@ setInterval(function () {
 
       switch(value) {
         case "sop":
-          // code block
-
-
-          
+          // code bloc
           break;
+
         case "alt":
           // code block
 
@@ -75,8 +73,9 @@ setInterval(function () {
         case "bas":
           console.log(note);
           sound.stop()
-sound.play(cars[note]);
+          sound.play(cars[note]);
           break; }
+          
       break;
     case "play":
       if (value == 1){sound.play(); console.log("plaaaaaaaaay"); 
