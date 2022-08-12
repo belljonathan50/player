@@ -48,6 +48,9 @@ function playAt() {
         case "jesu":
             start(jesu,lastDate*4);
           break;
+        case "moro":
+            start(moro,lastDate*4);
+          break;
         case "medee":
             start(medee,lastDate*4);
           break;
