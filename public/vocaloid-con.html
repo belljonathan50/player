@@ -121,7 +121,7 @@ var msg2 = inscore.newMessageM('duration');
 inscore.msgAddI(msg2, 60);
 inscore.msgAddI(msg2, 4);
 inscore.postMessage('/ITL/scene/tl',msg2);
-">jesu works!!!!!!!!!</button>
+">jesu</button>
 
 <button type="button" id="clickstartbach" style="color:rgb(218, 0, 0);" onclick="
 window.thistune  = 'moro';
@@ -169,7 +169,27 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 <button type="button" id="clickstartbach" style="color:rgb(0, 26, 255);" onclick="start(happy, 14); window.thistune  = 'happy'">happy day</button>
 
 <br>
-<button type="button" style="color:red;" onclick="sched.stop()">stop</button>
+<button type="button" style="color:red;" onclick="
+ws.send ('play 1');
+playAt();
+storedDate(speed)"
+>play</button>
+<button type="button" style="color:red;" onclick="
+sched.stop(); 
+ws.send ('play 0');
+ws.send ('lastTime()');
+ws.send ('sched.stop()');
+
+
+inscore.msgAddStr(msg3, 'tempo');
+inscore.msgAddI(msg3, 0);
+inscore.postMessage('/ITL/scene/pos',msg3);"
+
+
+">rewind</button>
+
+
+
 <br>
 
 
