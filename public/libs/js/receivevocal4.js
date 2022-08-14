@@ -77,17 +77,15 @@ setInterval(function () {
           break; }
           
       break;
-    case "play":
-      if (value == 1){sound.play(); console.log("plaaaaaaaaay"); 
-        let video = document.getElementById("vid"); 
-        video.play()}
-      if (value == 0){sound.pause(); console.log("paussssse");
-      let video = document.getElementById("vid"); 
-      video.pause()
-    }
-         
-    
-      break;
+    // case "play":
+    //   if (value == 1){sound.play(); console.log("plaaaaaaaaay"); 
+    //     let video = document.getElementById("vid"); 
+    //     video.play()}
+    //   if (value == 0){sound.pause(); console.log("paussssse");
+    //   let video = document.getElementById("vid"); 
+    //   video.pause()
+    // }  
+    //   break;
     case "seek":
       // code block
       sound.seek(value);
