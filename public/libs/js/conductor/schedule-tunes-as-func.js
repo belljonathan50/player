@@ -33,6 +33,10 @@ function bach(e) {
   sched.insert(t0 +  9.3913, pitch, { voice: 'alt', note: 41});
   sched.insert(t0 +  9.3913, pitch, { voice: 'sop', note: 54});
   sched.insert(t0 +  9.9130, pitch, { voice: 'alt', note: 44});
+  sched.insert(t0 +  10, page, { voice: 'sop', npage: 0  });
+  sched.insert(t0 +  10, page, { voice: 'alt', npage: 0  });
+  sched.insert(t0 +  10, page, { voice: 'ten', npage: 0  });
+  sched.insert(t0 +  10, page, { voice: 'bas', npage: 0  });
   sched.insert(t0 +  10.4348, pitch, { voice: 'alt', note: 47});
   sched.insert(t0 +  10.4348, pitch, { voice: 'sop', note: 51});
   sched.insert(t0 +  10.9565, pitch, { voice: 'alt', note: 30});
@@ -73,6 +77,10 @@ function bach(e) {
   sched.insert(t0 +  19.8261, pitch, { voice: 'bas', note: 20});
   sched.insert(t0 +  19.8261, pitch, { voice: 'alt', note: 41});
   sched.insert(t0 +  20.0870, pitch, { voice: 'sop', note: 47});
+  sched.insert(t0 +  20, page, { voice: 'sop', npage: 0  });
+  sched.insert(t0 +  20, page, { voice: 'alt', npage: 0  });
+  sched.insert(t0 +  20, page, { voice: 'ten', npage: 0  });
+  sched.insert(t0 +  20, page, { voice: 'bas', npage: 0  });
   sched.insert(t0 +  20.3478, pitch, { voice: 'sop', note: 49});
   sched.insert(t0 +  20.6087, pitch, { voice: 'alt', note: 37});
   sched.insert(t0 +  20.8696, pitch, { voice: 'bas', note: 19});
@@ -129,6 +137,10 @@ function bach(e) {
   sched.insert(t0 +  29.7391, pitch, { voice: 'bas', note: 23});
   sched.insert(t0 +  29.7391, pitch, { voice: 'alt', note: 40});
   sched.insert(t0 +  30.0000, pitch, { voice: 'alt', note: 37});
+  sched.insert(t0 +  30, page, { voice: 'sop', npage: 0  });
+  sched.insert(t0 +  30, page, { voice: 'alt', npage: 0  });
+  sched.insert(t0 +  30, page, { voice: 'ten', npage: 0  });
+  sched.insert(t0 +  30, page, { voice: 'bas', npage: 0  });
   sched.insert(t0 +  30.2609, pitch, { voice: 'ten', note: 30});
   sched.insert(t0 +  30.2609, pitch, { voice: 'alt', note: 34});
   sched.insert(t0 +  30.2609, pitch, { voice: 'sop', note: 51});
@@ -189,6 +201,10 @@ function bach(e) {
   sched.insert(t0 +  39.6522, pitch, { voice: 'bas', note: 33});
   sched.insert(t0 +  39.6522, pitch, { voice: 'ten', note: 44});
   sched.insert(t0 +  39.9130, pitch, { voice: 'sop', note: 54});
+  sched.insert(t0 +  40, page, { voice: 'sop', npage: 0  });
+  sched.insert(t0 +  40, page, { voice: 'alt', npage: 0  });
+  sched.insert(t0 +  40, page, { voice: 'ten', npage: 0  });
+  sched.insert(t0 +  40, page, { voice: 'bas', npage: 0  });
   sched.insert(t0 +  40.1739, pitch, { voice: 'bas', note: 34});
   sched.insert(t0 +  40.1739, pitch, { voice: 'sop', note: 57});
   sched.insert(t0 +  40.4348, pitch, { voice: 'bas', note: 33});
@@ -242,6 +258,10 @@ function bach(e) {
   sched.insert(t0 +  49.0435, pitch, { voice: 'ten', note: 32});
   sched.insert(t0 +  49.0435, pitch, { voice: 'alt', note: 37});
   sched.insert(t0 +  49.5652, pitch, { voice: 'sop', note: 44});
+  sched.insert(t0 +  50, page, { voice: 'sop', npage: 0  });
+  sched.insert(t0 +  50, page, { voice: 'alt', npage: 0  });
+  sched.insert(t0 +  50, page, { voice: 'ten', npage: 0  });
+  sched.insert(t0 +  50, page, { voice: 'bas', npage: 0  });
   sched.insert(t0 +  50.0869, pitch, { voice: 'bas', note: 13});
   sched.insert(t0 +  50.0869, pitch, { voice: 'alt', note: 36});
   sched.insert(t0 +  50.0869, pitch, { voice: 'sop', note: 47});
@@ -380,6 +400,12 @@ function bach(e) {
   sched.insert(t0 +  69.6522, pitch, { voice: 'sop', note: 47});
   sched.insert(t0 +  69.9130, pitch, { voice: 'bas', note: 10});
   sched.insert(t0 +  69.9130, pitch, { voice: 'sop', note: 49});
+
+  sched.insert(t0 +  70, page, { voice: 'sop', npage: 1  });
+  sched.insert(t0 +  70, page, { voice: 'alt', npage: 1  });
+  sched.insert(t0 +  70, page, { voice: 'ten', npage: 1  });
+  sched.insert(t0 +  70, page, { voice: 'bas', npage: 1  });
+
   sched.insert(t0 +  70.1739, pitch, { voice: 'sop', note: 47});
   sched.insert(t0 +  70.4348, pitch, { voice: 'bas', note: 13});
   sched.insert(t0 +  70.4348, pitch, { voice: 'sop', note: 44});
@@ -430,6 +456,13 @@ function bach(e) {
   sched.insert(t0 +  79.3043, pitch, { voice: 'sop', note: 47});
   sched.insert(t0 +  79.5652, pitch, { voice: 'alt', note: 36});
   sched.insert(t0 +  79.8261, pitch, { voice: 'alt', note: 37});
+
+  sched.insert(t0 +  80, page, { voice: 'sop', npage: 1  });
+  sched.insert(t0 +  80, page, { voice: 'alt', npage: 1  });
+  sched.insert(t0 +  80, page, { voice: 'ten', npage: 1  });
+  sched.insert(t0 +  80, page, { voice: 'bas', npage: 1  });
+
+
   sched.insert(t0 +  80.0869, pitch, { voice: 'sop', note: 51});
   sched.insert(t0 +  80.3478, pitch, { voice: 'alt', note: 44});
   sched.insert(t0 +  80.3478, pitch, { voice: 'sop', note: 50});
