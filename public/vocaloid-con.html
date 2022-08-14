@@ -168,6 +168,18 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 <button type="button" id="clickstartbach" style="color:rgb(0, 26, 255);" onclick="start(happy, 0); window.thistune  = 'happy'">happy warmup</button>
 <button type="button" id="clickstartbach" style="color:rgb(0, 26, 255);" onclick="start(happy, 14); window.thistune  = 'happy'">happy day</button>
 
+<button id="cur" type="button" onclick="
+var msg = inscore.newMessageM('set');
+inscore.msgAddStr(msg, 'img');
+inscore.msgAddStr(msg, ' lib/tallis.png');
+inscore.postMessage('/ITL/scene/tl',msg);
+ws.send('tune tallis');
+var msg2 = inscore.newMessageM('duration');
+inscore.msgAddI(msg2, 105);
+inscore.msgAddI(msg2, 4);
+inscore.postMessage('/ITL/scene/tl',msg2);
+   ">tallis</button>
+
 <br>
 <button type="button" style="color:red;" onclick="
 ws.send ('play 1');
@@ -299,17 +311,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 ws.send('tune collier2');
    ">collier isn't</button>
 
-   <button id="cur" type="button" onclick="
-var msg = inscore.newMessageM('set');
-inscore.msgAddStr(msg, 'img');
-inscore.msgAddStr(msg, ' lib/tallis.png');
-inscore.postMessage('/ITL/scene/tl',msg);
-ws.send('tune tallis');
-var msg2 = inscore.newMessageM('duration');
-inscore.msgAddI(msg2, 105);
-inscore.msgAddI(msg2, 4);
-inscore.postMessage('/ITL/scene/tl',msg2);
-   ">tallis</button>
+
 
 <button id="cur" type="button" onclick="
 var msg = inscore.newMessageM('set');
