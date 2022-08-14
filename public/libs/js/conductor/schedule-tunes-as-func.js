@@ -571,10 +571,10 @@ function medee(e) {
   sched.insert(t0 +  12.6000, pitch, { voice: 'sop', note: 46});
   sched.insert(t0 +  12.9000, pitch, { voice: 'alt', note: 29});
 
-  sched.insert(t0 +  0.500, page, { voice: 'sop', npage: 11  });
-  sched.insert(t0 +  0.500, page, { voice: 'alt', npage: 11  });
-  sched.insert(t0 +  0.500, page, { voice: 'ten', npage: 11  });
-  sched.insert(t0 +  0.500, page, { voice: 'bas', npage: 11  });
+  sched.insert(t0 +  0.500, page, { voice: 'sop', npage: 1  });
+  sched.insert(t0 +  0.500, page, { voice: 'alt', npage: 1  });
+  sched.insert(t0 +  0.500, page, { voice: 'ten', npage: 1  });
+  sched.insert(t0 +  0.500, page, { voice: 'bas', npage: 1  });
 
   sched.insert(t0 +  13.8000, pitch, { voice: 'alt', note: 30});
   sched.insert(t0 +  14.1000, pitch, { voice: 'alt', note: 33});
