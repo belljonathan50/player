@@ -512,10 +512,10 @@ sched.insert(t0 + 92.000, bach);
 
 function medee(e) {
   var t0 = e.playbackTime;
-  sched.insert(t0 +  0.500, page, { voice: 'sop', npage: 10  });
-  sched.insert(t0 +  0.500, page, { voice: 'alt', npage: 10  });
-  sched.insert(t0 +  0.500, page, { voice: 'ten', npage: 10  });
-  sched.insert(t0 +  0.500, page, { voice: 'bas', npage: 10  });
+  sched.insert(t0 +  0.500, page, { voice: 'sop', npage: 1  });
+  sched.insert(t0 +  0.500, page, { voice: 'alt', npage: 1  });
+  sched.insert(t0 +  0.500, page, { voice: 'ten', npage: 1  });
+  sched.insert(t0 +  0.500, page, { voice: 'bas', npage: 1  });
 
   sched.insert(t0 +  0.0000, pitch, { voice: 'ten', note: 37});
   sched.insert(t0 +  0.0000, pitch, { voice: 'alt', note: 20});
@@ -793,6 +793,12 @@ function medee(e) {
   sched.insert(t0 +  64.8000, pitch, { voice: 'alt', note: 20});
   sched.insert(t0 +  64.8000, pitch, { voice: 'sop', note: 41});
   sched.insert(t0 +  65.1000, pitch, { voice: 'sop', note: 40});
+
+  sched.insert(t0 +  65, page, { voice: 'sop', npage: 2  });
+  sched.insert(t0 +  65, page, { voice: 'alt', npage: 2  });
+  sched.insert(t0 +  65, page, { voice: 'ten', npage: 2  });
+  sched.insert(t0 +  65, page, { voice: 'bas', npage: 2  });
+
   sched.insert(t0 +  65.4000, pitch, { voice: 'alt', note: 20});
   sched.insert(t0 +  65.7000, pitch, { voice: 'alt', note: 20});
   sched.insert(t0 +  66.3000, pitch, { voice: 'alt', note: 20});
