@@ -78,17 +78,17 @@ sound.play(cars[note]);
           if (thispath == value){playNote(note);};
           break; }
       break;
-    case "play":
-      if (value == 1){sound.play(); console.log("plaaaaaaaaay"); 
-        let video = document.getElementById("vid"); 
-        video.play()}
-      if (value == 0){sound.pause(); console.log("paussssse");
-      let video = document.getElementById("vid"); 
-      video.pause()
-    }
+    // case "play":
+    //   if (value == 1){sound.play(); console.log("plaaaaaaaaay"); 
+    //     let video = document.getElementById("vid"); 
+    //     video.play()}
+    //   if (value == 0){sound.pause(); console.log("paussssse");
+    //   let video = document.getElementById("vid"); 
+    //   video.pause()
+    // }
          
     
-      break;
+    //   break;
     case "seek":
       // code block
       sound.seek(value);
