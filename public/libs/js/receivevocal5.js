@@ -88,7 +88,14 @@ sound.play(cars[note]);
       break;
     case "tune":
       // code block
-      console.log("I tune "+value);
+               switch(value) {
+                  case "tallis": {document.body.innerHTML="";
+                                  writeTune (value);
+                                 }; 
+                  break;
+                    case "alt":
+       
+                  break; }
       
       break;
 
@@ -165,6 +172,23 @@ function changePage(p1) {
   var img = document.getElementById("img");
   img.src = "./images/" +thispath  + "/"+p1 + ".png";
 console.log(img.src)
+}
+
+function writeTune (tune) {
+
+
+  switch(tune) {
+
+    case "tallis": document.write("<video></video>")
+                  var sound = new Howl({src: '/audio/'+ thispath + "/"+'frontleft.mp3'});
+      break;
+
+
+
+    case "moro": console.log("do that")
+      break;     }
+
+
 }
 
 
