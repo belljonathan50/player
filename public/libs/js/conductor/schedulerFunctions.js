@@ -19,6 +19,14 @@ var masterGain = null;
     ws.send('turn '+vox+" "+futuredate+" "+npage);
   }
 
+  function soundSeek(e) {
+    var t0 = e.playbackTime;
+    // var nsound = thistune + "/" +e.args.nsound;
+    time = e.args.time;
+    getTime();
+    ws.send('soundSeek '+time+" "+futuredate);
+    console.log("ms sent")
+  }
 
   function soundPlay(e) {
     var t0 = e.playbackTime;
@@ -38,14 +46,7 @@ var masterGain = null;
     console.log("ms sent")
   }
 
-  function soundSeek(e) {
-    var t0 = e.playbackTime;
-    // var nsound = thistune + "/" +e.args.nsound;
-    vox = e.args.voice;
-    getTime();
-    ws.send('soundSeek '+vox+" "+futuredate);
-    console.log("ms sent")
-  }
+
 
 sched.on("start", function() {
   masterGain = audioContext.createGain();
