@@ -151,7 +151,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 ">medee</button>
 
 <button type="button" id="clickstartbach" style="color:red;" onclick="
-window.thistune  = 'orfeeo';
+window.thistune  = 'orfeo';
 var msg = inscore.newMessageM('set');
 inscore.msgAddStr(msg, 'img');
 inscore.msgAddStr(msg, ' images/score/orfeo/0.png');
@@ -169,13 +169,14 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 <button type="button" id="clickstartbach" style="color:rgb(0, 26, 255);" onclick="start(happy, 14); window.thistune  = 'happy'">happy day</button>
 
 <button id="cur" type="button" onclick="
+window.thistune  = 'tallis';
 var msg = inscore.newMessageM('set');
 inscore.msgAddStr(msg, 'img');
-inscore.msgAddStr(msg, ' lib/tallis.png');
+inscore.msgAddStr(msg, ' images/score/tallis/0.png');
 inscore.postMessage('/ITL/scene/tl',msg);
 ws.send('tune tallis');
 var msg2 = inscore.newMessageM('duration');
-inscore.msgAddI(msg2, 105);
+inscore.msgAddI(msg2, 540);
 inscore.msgAddI(msg2, 4);
 inscore.postMessage('/ITL/scene/tl',msg2);
    ">tallis</button>
@@ -470,7 +471,7 @@ inscore.postMessage('/ITL/scene/tl',msg2);
 	# time line - that was in move /ITL/scene/javascript run "send('vdate $date%f')",
 	###############################
 	/ITL/scene/tl set img 'images/score/mitchel/0.png' ;
-	/ITL/scene/tl scale 0.5;
+	/ITL/scene/tl scale 0.2;
 	/ITL/scene/tl penWidth 1;
 	/ITL/scene/tl color white;
 	/ITL/scene/tl y -0.3;
