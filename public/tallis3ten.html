@@ -1,0 +1,28 @@
+
+
+<!doctype html>
+<html>
+<head>
+<script src="/timesync/timesync.js"></script> 
+<script src="/libs/js/getPath.js"></script>
+<script src="/libs/js/tallis.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script> 
+<link rel="stylesheet" href="/libs/css/pages.css">
+
+ 
+      <body id="body">
+
+<button id='lock' type='button' onclick=' this.remove()'>please click</button>
+<video id='vid' height='80%' width='100%' src='libs/vids/tallis/3.mp4' controls muted></video>
+      <script>let vid = document.getElementById('vid'); 
+      
+              let sound = new Howl({src: '/audio/tallis/3-3.mp3'});
+              var id1 = sound.play();
+              sound.stop(id1);
+
+      </script>
+
+
+
+      </body>
+</html>
