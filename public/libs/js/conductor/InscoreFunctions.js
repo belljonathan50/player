@@ -33,7 +33,7 @@ function lastTime() {
 
 
 function playAt() {
-    console.log("thistune "+thistune)
+    console.log("thistune "+thistune);
     // when hitting the play button
     ws.send ("seek "+lastDate*4);
     getTime();
@@ -56,6 +56,9 @@ function playAt() {
           break;
         case "orfeo":
             start(orfeo,lastDate*4);
+          break;
+        case "tallis":
+            start(tallis,lastDate*4);
           break;
         default:
           console.log("no tune");
